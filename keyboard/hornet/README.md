@@ -26,8 +26,11 @@ Plugin pressing these `Boot Magic` key.
 ### Modifiers row (common)
 
 Tap:    
+
     Spc Spc Esc Tab Del   Tab AGr Bsp Ent Ent
+
 Hold:   
+
     Lr1 Sft Ctl Alt Met   Met AGr Ctl Sft Lr1
 
 ### Default Layer
