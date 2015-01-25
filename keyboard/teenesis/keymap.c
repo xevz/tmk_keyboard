@@ -48,19 +48,19 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
                                                                                                                         \
    /* matrix positions */                                                                                               \
    {                                                                                                                    \
-    { KC_##k00,KC_##k01,KC_##k02,KC_##k03,KC_##k04,KC_##k05,KC_##k06,KC_##k07,KC_##k08,KC_##k09,KC_##k0A,KC_##k0B},     \
-    { KC_##k10,KC_##k11,KC_##k12,KC_##k13,KC_##k14,KC_##k15,KC_##k16,KC_##k17,KC_##k18,KC_##k19,KC_##k1A,KC_##k1B},     \
-    { KC_##k20,KC_##k21,KC_##k22,KC_##k23,KC_##k24,KC_##k25,KC_##k26,KC_##k27,KC_##k28,KC_##k29,KC_##k2A,KC_##k2B},     \
-    { KC_##k30,KC_##k31,KC_##k32,KC_##k33,KC_##k34,KC_##k35,KC_##k36,KC_##k37,KC_##k38,KC_##k39,KC_##k3A,KC_##k3B},     \
-    { KC_##k40,KC_##k41,KC_##k42,KC_##k43,KC_##k44,KC_NO   ,KC_NO   ,KC_##k47,KC_##k48,KC_##k49,KC_##k4A,KC_##k4B},     \
-    { KC_NO   ,KC_NO   ,KC_NO   ,KC_NO   ,KC_NO   ,KC_NO   ,KC_NO   ,KC_NO   ,KC_NO   ,KC_NO   ,KC_NO   ,KC_NO   },     \
-    { KC_NO   ,KC_NO   ,KC_NO   ,KC_NO   ,KC_NO   ,KC_NO   ,KC_NO   ,KC_NO   ,KC_NO   ,KC_NO   ,KC_NO   ,KC_NO   }      \
+    { KC_##k00,KC_##k10,KC_##k20,KC_##k30,KC_##k02,KC_NO,KC_NO},     \
+    { KC_##k01,KC_##k11,KC_##k21,KC_##k31,KC_##k41,KC_NO,KC_NO},     \
+    { KC_##k02,KC_##k12,KC_##k22,KC_##k32,KC_##k42,KC_NO,KC_NO},     \
+    { KC_##k03,KC_##k13,KC_##k23,KC_##k33,KC_##k43,KC_NO,KC_NO},     \
+    { KC_##k04,KC_##k14,KC_##k24,KC_##k34,KC_NO   ,KC_NO,KC_NO},     \
+    { KC_##k05,KC_##k15,KC_##k25,KC_##k35,KC_##k44,KC_NO,KC_NO},     \
+    { KC_##k06,KC_##k16,KC_##k26,KC_##k36,KC_NO   ,KC_NO,KC_NO},     \
+    { KC_##k07,KC_##k17,KC_##k27,KC_##k37,KC_##k47,KC_NO,KC_NO},     \
+    { KC_##k08,KC_##k18,KC_##k28,KC_##k38,KC_##k48,KC_NO,KC_NO},     \
+    { KC_##k09,KC_##k19,KC_##k29,KC_##k39,KC_##k49,KC_NO,KC_NO},     \
+    { KC_##k0A,KC_##k1A,KC_##k2A,KC_##k3A,KC_##k4A,KC_NO,KC_NO},     \
+    { KC_##k0B,KC_##k1B,KC_##k2B,KC_##k3B,KC_NO   ,KC_NO,KC_NO},     \
    }
-
-/*
-    { KC_##k50,KC_##k51,KC_##k52,KC_##k53,KC_##k54,KC_##k55,KC_##k56,KC_##k57,KC_##k58,KC_##k59,KC_##k5A,KC_##k5B},                       \
-    { KC_##k60,KC_##k61,KC_##k62,KC_##k63,KC_##k64,KC_##k65,KC_##k66,KC_##k67,KC_##k68,KC_##k69,KC_##k6A,KC_##k6B},                       \
-*/
 
 
 static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
