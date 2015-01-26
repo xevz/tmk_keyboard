@@ -165,8 +165,8 @@ uint8_t matrix_key_count(void)
  * col: 0   1   2   3   4  
  * pin: D0  D1  D2  D3  D4        PL2
  * pin: F0  F1  F4  F5  F6        PR2
- * pin: D5  D7                    PL1
- * pin: D5  D7                    PR1
+ * pin: F7  D5                    PL1
+ * pin: D6  D7                    PR1
  */
 static void  init_cols(void)
 {
@@ -191,7 +191,13 @@ static matrix_row_t read_cols(void)
         (PINF&(1<<1) ? 0 : (1<<6)) |
         (PINF&(1<<4) ? 0 : (1<<7)) |
         (PINF&(1<<5) ? 0 : (1<<8)) |
-        (PINF&(1<<6) ? 0 : (1<<9)) ;
+        (PINF&(1<<6) ? 0 : (1<<9)) |
+
+        (PINF&(1<<7) ? 0 : (1<<10)) |
+        (PIND&(1<<5) ? 0 : (1<<11)) |
+
+        (PIND&(1<<6) ? 0 : (1<<12)) |
+        (PIND&(1<<7) ? 0 : (1<<13)) ;
 }
 
 /* Row pin configuration
@@ -235,3 +241,4 @@ static void select_row(uint8_t row)
             break;
     }
 }
+
