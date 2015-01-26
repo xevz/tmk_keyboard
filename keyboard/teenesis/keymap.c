@@ -41,9 +41,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     k20,k21,k22,k23,k24,k25,                        k26,k27,k28,k29,k2A,k2B,                                    \
     k30,k31,k32,k33,k34,k35,                        k36,k37,k38,k39,k3A,k3B,                                    \
     k40,k41,k42,k43,k44,                                k47,k48,k49,k4A,k4B,                                    \
-                            k50,k52,        k58,k59,                                                            \
-                                k53,        k56,                                                                \
-                        k61,k62,k63,        k66,k67,k68 )                                                       \
+                            k52,k62,        k58,k59,                                                            \
+                                k63,        k56,                                                                \
+                        k53,k50,k61,        k66,k67,k68 )                                                       \
                                                                                                                 \
                                                                                                                 \
    /* matrix positions, k40 & k4B unused for now, k45 & k46 are untraced on plate */                            \
@@ -57,6 +57,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     { KC_##k04,KC_##k14,KC_##k24,KC_##k34,KC_NO   ,  KC_##k09,KC_##k19,KC_##k29,KC_##k39,KC_##k4A,  KC_NO   ,KC_NO   ,  KC_NO   ,KC_NO   },  /* 4: B4 */   \
     { KC_##k05,KC_##k15,KC_##k25,KC_##k35,KC_##k44,  KC_##k0A,KC_##k1A,KC_##k2A,KC_##k3A,KC_##k49,  KC_NO   ,KC_NO   ,  KC_NO   ,KC_NO   },  /* 5: B5 */   \
    }
+
 
 
 static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
