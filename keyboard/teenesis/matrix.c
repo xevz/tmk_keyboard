@@ -26,7 +26,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "debug.h"
 #include "util.h"
 #include "matrix.h"
-
+#ifdef DEBUG_MATRIX_SCAN_RATE
+#include  "timer.h"
+#endif
 
 #ifndef DEBOUNCE
 #   define DEBOUNCE	5

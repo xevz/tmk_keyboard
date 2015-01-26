@@ -40,7 +40,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     k10,k11,k12,k13,k14,k15,                        k16,k17,k18,k19,k1A,k1B,                                    \
     k20,k21,k22,k23,k24,k25,                        k26,k27,k28,k29,k2A,k2B,                                    \
     k30,k31,k32,k33,k34,k35,                        k36,k37,k38,k39,k3A,k3B,                                    \
-    k40,k41,k42,k43,k44,                                k47,k48,k49,k4A,k4B,                                    \
+    k40,k41,k42,k43,k44,                                k48,k47,k4A,k49,k4B,                                    \
                             k52,k62,        k59,k68,                                                            \
                                 k63,        k58,                                                                \
                         k53,k50,k61,        k56,k67,k66 )                                                       \
@@ -62,29 +62,217 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KEYMAP(  // layer 0 : default
-        // left hand                             // right hand
-        EQL, 1,   2,   3,   4,   5,                        6,   7,   8,   9,   0,   MINS,
-        BSLS,Q,   W,   E,   R,   T,                        Y,   U,   I,   O,   P,   TAB,
-        TAB, A,   S,   D,   F,   G,                        H,   J,   K,   L,   SCLN,QUOT,
-        LSFT,Z,   X,   C,   V,   B,                        N,   M,   COMM,DOT, SLSH,RSFT,
-        TRNS,GRV, BSLS,LEFT,RGHT,                               DOWN,UP,  RBRC,LBRC,TRNS,
-                                   LCTL,LALT,    GRV ,RCTL,
-                                        HOME,    PGUP,
-                              BSPC,DEL, END,     PGDN,ENT, SPC
+        ESC ,1   ,2   ,3   ,4   ,5   ,               6   ,7   ,8   ,9   ,0   ,EQL ,
+        FN2 ,Q   ,W   ,E   ,R   ,T   ,               Y   ,U   ,I   ,O   ,P   ,LBRC,
+        FN11,FN28,FN29,FN30,FN31,G   ,               H   ,J   ,K   ,L   ,SCLN,FN15,
+        FN12,FN24,FN25,FN26,FN27,B   ,               N   ,M   ,COMM,DOT ,SLSH,FN16,
+        FN21,FN20,CAPS,FN13,FN14,                         LEFT,UP  ,DOWN,RGHT,FN22,
+                                 FN17,FN19,     PGUP,LGUI,
+                                      NO  ,     PGDN,
+                            FN5 ,FN6 ,FN7 ,     FN8 ,FN9 ,FN10
     ),
+
+    KEYMAP(  // Layer1: Workman layout, leftled:all
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,               TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
+        TRNS,Q   ,D   ,R   ,W   ,B   ,               J   ,F   ,U   ,P   ,4   ,TRNS,
+        TRNS,A   ,S   ,H   ,T   ,G   ,               Y   ,N   ,E   ,O   ,I   ,TRNS,
+        TRNS,Z   ,X   ,M   ,C   ,V   ,               K   ,L   ,TRNS,TRNS,TRNS,TRNS,
+        TRNS,TRNS,FN17,TRNS,TRNS,                         TRNS,TRNS,TRNS,TRNS,TRNS,
+                                 TRNS,TRNS,     TRNS,TRNS,
+                                      TRNS,     TRNS,
+                            TRNS,TRNS,TRNS,     TRNS,TRNS,TRNS
+    ),
+
+    KEYMAP(  // Layer2: numpad, leftled:mid/blue
+        // left hand
+        TRNS,NO  ,NO  ,NO  ,NO  ,PAUS,               NLCK,PSLS,PAST,PAST,PMNS,BSPC,
+        TRNS,NO  ,NO  ,NO  ,NO  ,NO  ,               NO  ,P7  ,P8  ,P9  ,PMNS,PGUP,
+        TRNS,NO  ,NO  ,NO  ,TRNS,NO  ,               NO  ,P4  ,P5  ,P6  ,PPLS,PGDN,
+        TRNS,NO  ,NO  ,NO  ,TRNS,NO  ,               NO  ,P1  ,P2  ,P3  ,PPLS,PENT,
+        TRNS,TRNS,FN17,TRNS,TRNS,                         P0  ,PDOT,SLSH,PENT,PENT,
+                                 TRNS,TRNS,     TRNS,TRNS,
+                                      TRNS,     TRNS,
+                            TRNS,TRNS,TRNS,     TRNS,TRNS,TRNS
+    ),
+
+    KEYMAP(  // Layer3: F-keys + PgUp/PgDn on right hand, leftled:bot/green
+        TRNS,NO  ,NO  ,NO  ,NO  ,NO  ,               NO  ,NO  ,NO  ,NO  ,NO  ,TRNS,
+        TRNS,NO  ,NO  ,NO  ,NO  ,NO  ,               NO  ,F1  ,F2  ,F3  ,F4  ,PGUP,
+        TRNS,NO  ,TRNS,NO  ,NO  ,NO  ,               NO  ,F5  ,F6  ,F7  ,F8  ,PGDN,
+        TRNS,NO  ,TRNS,NO  ,NO  ,NO  ,               NO  ,F9  ,F10 ,F11 ,F12 ,APP ,
+        TRNS,TRNS,TRNS,LALT,LGUI,                         RGUI,RALT,TRNS,TRNS,TRNS,
+                                 TRNS,TRNS,     TRNS,TRNS,
+                                      TRNS,     TRNS,
+                            LCTL,LSFT,TRNS,     TRNS,RSFT,RCTL
+    ),
+
+    KEYMAP(  // Layer4: unconvenient keys on right hand, leftled:top/white
+                                                    /* in Workman right hand will be:
+                                                            { } ( ) +
+                                                          ^ ! ?     =
+                                                          ' ! $ " ; \
+                                                          # [ < > ] \         */
+        TRNS,NO  ,NO  ,NO  ,NO  ,NO  ,               NO  ,4   ,5   ,9   ,0   ,PPLS,
+        TRNS,NO  ,NO  ,NO  ,NO  ,NO  ,               MINS,2   ,FN5 ,9   ,0   ,EQL ,
+        TRNS,TRNS,NO  ,NO  ,NO  ,NO  ,               BSLS,2   ,P   ,FN1 ,1   ,FN2 ,
+        TRNS,TRNS,NO  ,NO  ,NO  ,NO  ,               3   ,6   ,FN3 ,FN4 ,7   ,FN2 ,
+        TRNS,TRNS,TRNS,LALT,LGUI,                         TRNS,TRNS,TRNS,TRNS,TRNS,
+                                 TRNS,TRNS,     TRNS,TRNS,
+                                      TRNS,     TRNS,
+                            TRNS,TRNS,TRNS,     TRNS,TRNS,TRNS
+    ),
+
+    KEYMAP(  // Layer5: F-keys instead of numbers, leftled:top/white
+        F1  ,F2  ,F3  ,F4  ,F5  ,F6  ,               F7  ,F8  ,F9  ,F10 ,F11 ,F12 ,
+        TRNS,P1  ,P2  ,P3  ,P4  ,P5  ,               P6  ,P7  ,P8  ,P9  ,P0  ,TRNS,
+        TRNS,TRNS,TRNS,E   ,TRNS,TRNS,               TRNS,U   ,TRNS,TRNS,TRNS,TRNS,
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,               TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
+        TRNS,TRNS,TRNS,TRNS,TRNS,                         TRNS,TRNS,TRNS,TRNS,TRNS,
+                                 TRNS,TRNS,     TRNS,TRNS,
+                                      TRNS,     TRNS,
+                            TRNS,TRNS,TRNS,     TRNS,TRNS,TRNS
+    ),
+
+    KEYMAP(  // Layer6: F-keys + utils(Teensy, Workman-layer switch), leftled:top/white+onboard
+        FN0 ,F1  ,F2  ,F3  ,F4  ,F5  ,               F6  ,F7  ,F8  ,F9  ,F10 ,FN0 ,
+        TRNS,P1  ,P2  ,P3  ,P4  ,P5  ,               P6  ,P7  ,P8  ,P9  ,P0  ,TRNS,
+        TRNS,TRNS,TRNS,E   ,TRNS,TRNS,               TRNS,U   ,TRNS,TRNS,TRNS,TRNS,
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,               TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
+        FN18,TRNS,TRNS,TRNS,TRNS,                         TRNS,TRNS,TRNS,TRNS,TRNS,
+                                 TRNS,TRNS,     TRNS,TRNS,
+                                      TRNS,     TRNS,
+                            TRNS,TRNS,TRNS,     TRNS,TRNS,TRNS
+    ),
+
+    //
+    // rarely used
+    //
+
+    KEYMAP(  // Layer7: F-keys only, leftled:top/white
+        FN0 ,NO  ,NO  ,NO  ,NO  ,NO  ,               NO  ,NO  ,NO  ,NO  ,NO  ,TRNS,
+        FN1 ,F13 ,F14 ,F15 ,F16 ,NO  ,               NO  ,F1  ,F2  ,F3  ,F4  ,TRNS,
+        TRNS,F17 ,F18 ,F19 ,F20 ,NO  ,               NO  ,F5  ,F6  ,F7  ,F8  ,TRNS,
+        TRNS,F21 ,F22 ,F23 ,F24 ,NO  ,               NO  ,F9  ,F10 ,F11 ,F12 ,TRNS,
+        TRNS,TRNS,TRNS,TRNS,TRNS,                         TRNS,TRNS,TRNS,TRNS,TRNS,
+                                 TRNS,TRNS,     TRNS,TRNS,
+                                      TRNS,     TRNS,
+                            TRNS,TRNS,TRNS,     SLEP,TRNS,TRNS
+    ),
+
+    KEYMAP(  // Layer8: mouse and navigation, leftled:mid/blue+bot/green
+        // left hand
+        TRNS,NO  ,NO  ,NO  ,NO  ,NO  ,               MPLY,MPRV,MNXT,VOLD,VOLU,MUTE,
+        TRNS,NO  ,NO  ,NO  ,ACL0,NO  ,               BTN2,WH_L,WH_U,WH_D,WH_R,PGUP,
+        TRNS,NO  ,NO  ,TRNS,ACL1,NO  ,               BTN1,MS_L,MS_U,MS_D,MS_R,PGDN,
+        TRNS,NO  ,NO  ,TRNS,ACL2,NO  ,               BTN3,HOME,END ,DEL ,INS ,NO  ,
+        TRNS,TRNS,TRNS,TRNS,TRNS,                         TRNS,TRNS,TRNS,TRNS,TRNS,
+                                 TRNS,TRNS,     TRNS,TRNS,
+                                      TRNS,     TRNS,
+                            TRNS,TRNS,TRNS,     TRNS,TRNS,TRNS
+    ),
+
+    KEYMAP(  // Layer9: application-specific shortcuts (mostly browser), leftled:top/white+bot/green
+        // left hand
+        TRNS,NO  ,NO  ,NO  ,NO  ,NO  ,              NO  ,NO  ,NO  ,NO  ,NO  ,TRNS,
+        TRNS,NO  ,NO  ,NO  ,NO  ,NO  ,              NO  ,FN12,FN13,FN14,FN15,FN10,
+        TRNS,NO  ,NO  ,NO  ,NO  ,NO  ,              FN1 ,FN2 ,FN3 ,FN4 ,FN5 ,FN11,
+        TRNS,NO  ,NO  ,NO  ,TRNS,NO  ,              TRNS,FN6 ,FN7 ,FN8 ,FN9 ,FN0 ,
+        TRNS,TRNS,TRNS,TRNS,TRNS,                        TRNS,TRNS,TRNS,TRNS,TRNS,
+                                 TRNS,TRNS,    TRNS,TRNS,
+                                      TRNS,    TRNS,
+                            TRNS,TRNS,TRNS,    TRNS,TRNS,TRNS
+    ),
+
+/*
+    // templates to copy from
+
+    KEYMAP(  // LayerN: transparent on edges + hard-defined thumb keys, all others are empty
+        TRNS,NO  ,NO  ,NO  ,NO  ,NO  ,               NO  ,NO  ,NO  ,NO  ,NO  ,TRNS,
+        TRNS,NO  ,NO  ,NO  ,NO  ,NO  ,               NO  ,NO  ,NO  ,NO  ,NO  ,TRNS,
+        TRNS,NO  ,NO  ,NO  ,NO  ,NO  ,               NO  ,NO  ,NO  ,NO  ,NO  ,TRNS,
+        TRNS,NO  ,NO  ,NO  ,NO  ,NO  ,               NO  ,NO  ,NO  ,NO  ,NO  ,TRNS,
+        TRNS,TRNS,TRNS,LALT,LGUI,                         RGUI,RALT,TRNS,TRNS,TRNS,
+                                 TRNS,TRNS,     TRNS,TRNS,
+                                      TRNS,     TRNS,
+                            LCTL,LSFT,TRNS,     TRNS,RSFT,RCTL
+    ),
+    KEYMAP(  // LayerN: fully transparent
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,               TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,               TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,               TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,               TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
+        TRNS,TRNS,TRNS,TRNS,TRNS,                         TRNS,TRNS,TRNS,TRNS,TRNS,
+                                 TRNS,TRNS,     TRNS,TRNS,
+                                      TRNS,     TRNS,
+                            TRNS,TRNS,TRNS,     TRNS,TRNS,TRNS
+    ),
+*/
 
 };
 
-/* id for user defined functions */
+/* id for user defined functions & macros */
 enum function_id {
     TEENSY_KEY,
+    CUSTOM_KEY,
+    L_CTRL_ALT_ENT,
+    R_CTRL_ALT_ENT,
+};
+
+enum macro_id {
+    XMONAD_RESET,
+    PASSWORD1,
+    PASSWORD2,
+    PASSWORD3,
 };
 
 /*
  * Fn action definition
  */
 static const uint16_t PROGMEM fn_actions[] = {
-    ACTION_FUNCTION(TEENSY_KEY),                            // FN0 - Teensy key
+    [0] =   ACTION_FUNCTION(TEENSY_KEY),                    // FN0  - Teensy key
+
+    [1] =   ACTION_MODS_KEY(MOD_LSFT, KC_BSLS),             // FN1  = Shifted BackSlash // " in Workman
+    [2] =   ACTION_MODS_KEY(MOD_LSFT, KC_MINS),             // FN2  = Shifted Minus     // \ in Workman
+    [3] =   ACTION_MODS_KEY(MOD_LSFT, KC_COMM),             // FN3  = Shifted comma     // < in Workman
+    [4] =   ACTION_MODS_KEY(MOD_LSFT, KC_DOT),              // FN4  = Shifted dot       // > in Workman
+
+    [5] =   ACTION_MODS_TAP_KEY(MOD_LCTL, KC_BSPC),         // FN5  = LShift with tap BackSpace
+    [6] =   ACTION_MODS_TAP_KEY(MOD_LSFT, KC_DEL),          // FN6  = LCtrl  with tap Delete
+    [7] =   ACTION_MODS_TAP_KEY(MOD_LALT, KC_ESC),          // FN7  = LAlt   with tap Escape
+    [8] =   ACTION_MODS_TAP_KEY(MOD_RGUI, KC_INS),          // FN8  = RGui   with tap Ins
+    [9] =   ACTION_MODS_TAP_KEY(MOD_RSFT, KC_ENT),          // FN9  = RShift with tap Enter
+    [10] =  ACTION_MODS_TAP_KEY(MOD_RCTL, KC_SPC),          // FN10 = RCtrl  with tap Space
+
+    [11] =  ACTION_MODS_TAP_KEY(MOD_LSFT, KC_TAB),          // FN11 = LShift with tap Tab
+    [12] =  ACTION_MODS_TAP_KEY(MOD_LCTL, KC_GRV),          // FN12 = LCtrl  with tap Tilda
+    [13] =  ACTION_MODS_TAP_KEY(MOD_LALT, KC_SPC),          // FN13 = LAlt   with tap Space
+    [14] =  ACTION_MODS_TAP_KEY(MOD_LGUI, KC_ESC),          // FN14 = LGui   with tap Escape
+    [15] =  ACTION_MODS_TAP_KEY(MOD_RSFT, KC_QUOT),         // FN15 = RShift with tap quotes
+    [16] =  ACTION_MODS_TAP_KEY(MOD_RCTL, KC_RBRC),         // FN16 = RCtrl  with tap ]
+
+    [17] =  ACTION_LAYER_SET(0, ON_BOTH),                   // FN17 - set Layer0
+    [18] =  ACTION_LAYER_SET(1, ON_BOTH),                   // FN18 - set Layer1, to use Workman layout at firmware level
+    [19] =  ACTION_LAYER_SET(2, ON_BOTH),                   // FN19 - set Layer2, to use with Numpad keys
+
+    [21] =  ACTION_FUNCTION_TAP(L_CTRL_ALT_ENT),            // FN21 - momentary Layer5+CTRL+ALT on Enter, to use with F* keys on top row
+    [22] =  ACTION_FUNCTION_TAP(R_CTRL_ALT_ENT),            // FN22 - momentary Layer6+CTRL+ALT on Enter, to use with F* keys on top row + utils
+
+    [28] =  ACTION_LAYER_TAP_KEY(4, KC_A),                  // FN28 = momentary Layer4 on A key, to use with unconvenient keys
+    [29] =  ACTION_LAYER_TAP_KEY(3, KC_S),                  // FN29 = momentary Layer3 on S key, to use with F* keys
+    [30] =  ACTION_LAYER_TAP_KEY(8, KC_D),                  // FN30 = momentary Layer8 on D key, to use with mouse and navigation keys
+    [31] =  ACTION_LAYER_TAP_KEY(2, KC_F),                  // FN31 = momentary Layer2 on F key, to use with Numpad keys
+
+    // i'd like to remove this - will try to get used to live without this and convert them to usual keys
+    [20] =  ACTION_LAYER_MOMENTARY(2),                      // FN20 - momentary Layer2, to use with Numpad keys
+// or
+//  [20] =  ACTION_FUNCTION_TAP(CUSTOM_KEY),                // FN20 - use custom key, with tapping support
+
+    [23] =  ACTION_LAYER_TAP_KEY(7, KC_BSLS),               // FN23 - momentary Layer7 on ' , to use with F* keys (F1-F24)
+
+    [24] =  ACTION_LAYER_TAP_KEY(4, KC_Z),                  // FN24 = momentary Layer4 on Z key, to use with unconvenient keys
+    [25] =  ACTION_LAYER_TAP_KEY(3, KC_X),                  // FN25 = momentary Layer3 on X key, to use with F* keys
+    [26] =  ACTION_LAYER_TAP_KEY(8, KC_C),                  // FN26 = momentary Layer8 on C key, to use with mouse and navigation keys
+    [27] =  ACTION_LAYER_TAP_KEY(9, KC_V),                  // FN27 = momentary Layer9 on V key, to use with application-specific shortcuts
 };
 
 static const uint16_t PROGMEM fn_actions_4[] = {
@@ -96,7 +284,10 @@ static const uint16_t PROGMEM fn_actions_4[] = {
 };
 
 static const uint16_t PROGMEM fn_actions_7[] = {
-    ACTION_FUNCTION(TEENSY_KEY),                            // FN0 - Teensy key
+    [0]  =  ACTION_MACRO(XMONAD_RESET),                     // FN0  = xmonad-reanimator
+    [1]  =  ACTION_MACRO(PASSWORD1),                        // FN1  = default password
+    [2]  =  ACTION_MACRO(PASSWORD1),                        // FN2  = other password
+    [3]  =  ACTION_MACRO(PASSWORD1),                        // FN3  = mega password
 };
 
 static const uint16_t PROGMEM fn_actions_9[] = {
@@ -118,19 +309,55 @@ static const uint16_t PROGMEM fn_actions_9[] = {
     [15] =  ACTION_MODS_KEY(MOD_LCTL,          KC_PPLS),    // FN15 = Ctrl+Pad Plus
 };
 
-
-void action_function(keyrecord_t *event, uint8_t id, uint8_t opt)
+void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
 {
+    // print("action_function called\n");
+    // print("id  = "); phex(id); print("\n");
+    // print("opt = "); phex(opt); print("\n");
+
     if (id == TEENSY_KEY) {
         clear_keyboard();
         print("\n\nJump to bootloader... ");
-        _delay_ms(250);
+        _delay_ms(50);
         bootloader_jump(); // should not return
         print("not supported.\n");
+    }
+
+    if (id == L_CTRL_ALT_ENT || id == R_CTRL_ALT_ENT) {
+        if (record->tap.count == 0 || record->tap.interrupted) {
+            uint8_t weak_mods;
+            uint8_t layer;
+
+            if (id == L_CTRL_ALT_ENT) {
+                weak_mods = MOD_BIT(KC_LCTL) | MOD_BIT(KC_LALT);
+                layer     = 5;
+            } else {
+                weak_mods = MOD_BIT(KC_RCTL) | MOD_BIT(KC_RALT);
+                layer     = 6;
+            }
+
+            if (record->event.pressed) {
+                layer_on(layer);
+                add_weak_mods(weak_mods);
+            } else {
+                del_weak_mods(weak_mods);
+                layer_off(layer);
+            }
+        } else {
+            if (record->event.pressed) {
+                add_key(KC_ENT);
+                send_keyboard_report();
+            } else {
+                del_key(KC_ENT);
+                send_keyboard_report();
+            }
+        }
     }
 }
 
 #define KEYMAPS_SIZE    (sizeof(keymaps) / sizeof(keymaps[0]))
+#define FN_ACTIONS_SIZE (sizeof(fn_actions) / sizeof(fn_actions[0]))
+
 /* translates key to keycode */
 uint8_t keymap_key_to_keycode(uint8_t layer, keypos_t key)
 {
@@ -142,10 +369,23 @@ uint8_t keymap_key_to_keycode(uint8_t layer, keypos_t key)
     }
 }
 
+
+#include "keymap_passwords.h"
+const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt) {
+    if (record->event.pressed) {
+        switch (id) {
+            case XMONAD_RESET:  return MACRO_XMONAD_RESET;
+            case PASSWORD1:     return MACRO_PASSWORD1;
+        }
+    }
+    return MACRO_NONE;
+}
+
 #define FN_ACTIONS_SIZE     (sizeof(fn_actions)   / sizeof(fn_actions[0]))
 #define FN_ACTIONS_4_SIZE   (sizeof(fn_actions_4) / sizeof(fn_actions_4[0]))
 #define FN_ACTIONS_7_SIZE   (sizeof(fn_actions_7) / sizeof(fn_actions_7[0]))
 #define FN_ACTIONS_9_SIZE   (sizeof(fn_actions_9) / sizeof(fn_actions_9[0]))
+
 /*
  * translates Fn keycode to action
  * for some layers, use different translation table

@@ -92,40 +92,40 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     KEYMAP(  // Layer0: default, leftled:none
         // left hand
-        GRV, 1,   2,   3,   4,   5,   BSLS,
-        FN2, Q,   W,   E,   R,   T,   FN23,
-        FN11,FN28,FN29,FN30,FN31,G,
-        FN12,FN24,FN25,FN26,FN27,B,   HOME,
+        GRV ,1   ,2   ,3   ,4   ,5   ,BSLS,
+        FN2 ,Q   ,W   ,E   ,R   ,T   ,FN23,
+        FN11,FN28,FN29,FN30,FN31,G   ,
+        FN12,FN24,FN25,FN26,FN27,B   ,HOME,
         FN21,FN20,CAPS,FN13,FN14,
                                       FN17,FN19,
-                                           NO,
-                                 FN5, FN6, FN7,
+                                           NO  ,
+                                 FN5 ,FN6 ,FN7 ,
         // right hand
-             MINS,6,   7,   8,   9,   0,   EQL,
-             FN23,Y,   U,   I,   O,   P,   LBRC,
-                  H,   J,   K,   L,   SCLN,FN15,
-             END, N,   M,   COMM,DOT, SLSH,FN16,
-                       LEFT,UP,  DOWN,RGHT,FN22,
-        PGUP,DEL,
+             MINS,6   ,7   ,8   ,9   ,0   ,EQL ,
+             FN23,Y   ,U   ,I   ,O   ,P   ,LBRC,
+                  H   ,J   ,K   ,L   ,SCLN,FN15,
+             END ,N   ,M   ,COMM,DOT ,SLSH,FN16,
+                       LEFT,UP  ,DOWN,RGHT,FN22,
+        PGUP,DEL ,
         PGDN,
-        FN8, FN9, FN10
+        FN8 ,FN9 ,FN10
     ),
 
     KEYMAP(  // Layer1: Workman layout, leftled:all
         // left hand
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
-        TRNS,Q,   D,   R,   W,   B,   TRNS,
-        TRNS,A,   S,   H,   T,   G,
-        TRNS,Z,   X,   M,   C,   V,   TRNS,
+        TRNS,Q   ,D   ,R   ,W   ,B   ,TRNS,
+        TRNS,A   ,S   ,H   ,T   ,G   ,
+        TRNS,Z   ,X   ,M   ,C   ,V   ,TRNS,
         TRNS,TRNS,FN17,TRNS,TRNS,
                                       TRNS,TRNS,
                                            TRNS,
                                  TRNS,TRNS,TRNS,
         // right hand
              TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
-             TRNS,J,   F,   U,   P,   4,   TRNS,
-                  Y,   N,   E,   O,   I,   TRNS,
-             TRNS,K,   L,   TRNS,TRNS,TRNS,TRNS,
+             TRNS,J   ,F   ,U   ,P   ,4   ,TRNS,
+                  Y   ,N   ,E   ,O   ,I   ,TRNS,
+             TRNS,K   ,L   ,TRNS,TRNS,TRNS,TRNS,
                        TRNS,TRNS,TRNS,TRNS,TRNS,
         TRNS,TRNS,
         TRNS,
@@ -134,20 +134,20 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     KEYMAP(  // Layer2: numpad, leftled:mid/blue
         // left hand
-        TRNS,NO,  NO,  NO,  NO,  PAUS,PSCR,
-        TRNS,NO,  NO,  NO,  NO,  NO,  TRNS,
-        TRNS,NO,  NO,  NO,  TRNS,NO,
-        TRNS,NO,  NO,  NO,  TRNS,NO,  TRNS,
+        TRNS,NO  ,NO  ,NO  ,NO  ,PAUS,PSCR,
+        TRNS,NO  ,NO  ,NO  ,NO  ,NO  ,TRNS,
+        TRNS,NO  ,NO  ,NO  ,TRNS,NO  ,
+        TRNS,NO  ,NO  ,NO  ,TRNS,NO  ,TRNS,
         TRNS,TRNS,FN17,TRNS,TRNS,
                                       TRNS,TRNS,
                                            TRNS,
                                  TRNS,TRNS,TRNS,
         // right hand
              SLCK,NLCK,PSLS,PAST,PAST,PMNS,BSPC,
-             TRNS,NO,  P7,  P8,  P9,  PMNS,PGUP,
-                  NO,  P4,  P5,  P6,  PPLS,PGDN,
-             TRNS,NO,  P1,  P2,  P3,  PPLS,PENT,
-                       P0,  PDOT,SLSH,PENT,PENT,
+             TRNS,NO  ,P7  ,P8  ,P9  ,PMNS,PGUP,
+                  NO  ,P4  ,P5  ,P6  ,PPLS,PGDN,
+             TRNS,NO  ,P1  ,P2  ,P3  ,PPLS,PENT,
+                       P0  ,PDOT,SLSH,PENT,PENT,
         TRNS,TRNS,
         TRNS,
         TRNS,TRNS,TRNS
@@ -155,19 +155,19 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     KEYMAP(  // Layer3: F-keys + PgUp/PgDn on right hand, leftled:bot/green
         // left hand
-        TRNS,NO,  NO,  NO,  NO,  NO,  NO,
-        TRNS,NO,  NO,  NO,  NO,  NO,  TRNS,
-        TRNS,NO,  TRNS,NO,  NO,  NO,
-        TRNS,NO,  TRNS,NO,  NO,  NO,  TRNS,
+        TRNS,NO  ,NO  ,NO  ,NO  ,NO  ,NO  ,
+        TRNS,NO  ,NO  ,NO  ,NO  ,NO  ,TRNS,
+        TRNS,NO  ,TRNS,NO  ,NO  ,NO  ,
+        TRNS,NO  ,TRNS,NO  ,NO  ,NO  ,TRNS,
         TRNS,TRNS,TRNS,LALT,LGUI,
                                       TRNS,TRNS,
                                            TRNS,
                                  LCTL,LSFT,TRNS,
         // right hand
-             NO,  NO,  NO,  NO,  NO,  NO,  TRNS,
-             TRNS,NO,  F1,  F2,  F3,  F4,  PGUP,
-                  NO,  F5,  F6,  F7,  F8,  PGDN,
-             TRNS,NO,  F9,  F10, F11, F12, APP,
+             NO  ,NO  ,NO  ,NO  ,NO  ,NO  ,TRNS,
+             TRNS,NO  ,F1  ,F2  ,F3  ,F4  ,PGUP,
+                  NO  ,F5  ,F6  ,F7  ,F8  ,PGDN,
+             TRNS,NO  ,F9  ,F10 ,F11 ,F12 ,APP ,
                        RGUI,RALT,TRNS,TRNS,TRNS,
         TRNS,TRNS,
         TRNS,
@@ -176,10 +176,10 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     KEYMAP(  // Layer4: unconvenient keys on right hand, leftled:top/white
         // left hand
-        TRNS,NO,  NO,  NO,  NO,  NO,  NO,
-        TRNS,NO,  NO,  NO,  NO,  NO,  TRNS,
-        TRNS,TRNS,NO,  NO,  NO,  NO,
-        TRNS,TRNS,NO,  NO,  NO,  NO,  TRNS,
+        TRNS,NO  ,NO  ,NO  ,NO  ,NO  ,NO  ,
+        TRNS,NO  ,NO  ,NO  ,NO  ,NO  ,TRNS,
+        TRNS,TRNS,NO  ,NO  ,NO  ,NO  ,
+        TRNS,TRNS,NO  ,NO  ,NO  ,NO  ,TRNS,
         TRNS,TRNS,TRNS,LALT,LGUI,
                                       TRNS,TRNS,
                                            TRNS,
@@ -193,10 +193,10 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         */
 
         // right hand
-             NO,  NO,  4,   5,   9,   0,   PPLS,
-             TRNS,MINS,2,   FN5, 9,   0,   EQL,
-                  BSLS,2,   P,   FN1, 1,   FN2,
-             TRNS,3,   6,   FN3, FN4, 7,   FN2,
+             NO  ,NO  ,4   ,5   ,9   ,0   ,PPLS,
+             TRNS,MINS,2   ,FN5 ,9   ,0   ,EQL ,
+                  BSLS,2   ,P   ,FN1 ,1   ,FN2 ,
+             TRNS,3   ,6   ,FN3 ,FN4 ,7   ,FN2 ,
                        TRNS,TRNS,TRNS,TRNS,TRNS,
         TRNS,TRNS,
         TRNS,
@@ -205,18 +205,18 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     KEYMAP(  // Layer5: F-keys instead of numbers, leftled:top/white
         // left hand
-        TRNS,F1,  F2,  F3,  F4,  F5,  F6,
-        TRNS,P1,  P2,  P3,  P4,  P5,  TRNS,
-        TRNS,TRNS,TRNS,E,   TRNS,TRNS,
+        TRNS,F1  ,F2  ,F3  ,F4  ,F5  ,F6  ,
+        TRNS,P1  ,P2  ,P3  ,P4  ,P5  ,TRNS,
+        TRNS,TRNS,TRNS,E   ,TRNS,TRNS,
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
         TRNS,TRNS,TRNS,TRNS,TRNS,
                                       TRNS,TRNS,
                                            TRNS,
                                  TRNS,TRNS,TRNS,
         // right hand
-             F7,  F8,  F9,  F10, F11, F12, TRNS,
-             TRNS,P6,  P7,  P8,  P9,  P0,  TRNS,
-                  TRNS,U,   TRNS,TRNS,TRNS,TRNS,
+             F7  ,F8  ,F9  ,F10 ,F11 ,F12 ,TRNS,
+             TRNS,P6  ,P7  ,P8  ,P9  ,P0  ,TRNS,
+                  TRNS,U   ,TRNS,TRNS,TRNS,TRNS,
              TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
                        TRNS,TRNS,TRNS,TRNS,TRNS,
         TRNS,TRNS,
@@ -226,18 +226,18 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     KEYMAP(  // Layer6: F-keys + utils(Teensy, Workman-layer switch), leftled:top/white+onboard
         // left hand
-        FN0, F1,  F2,  F3,  F4,  F5,  F6,
-        TRNS,P1,  P2,  P3,  P4,  P5,  TRNS,
-        TRNS,TRNS,TRNS,E,   TRNS,TRNS,
+        FN0 ,F1  ,F2  ,F3  ,F4  ,F5  ,F6  ,
+        TRNS,P1  ,P2  ,P3  ,P4  ,P5  ,TRNS,
+        TRNS,TRNS,TRNS,E   ,TRNS,TRNS,
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
         FN18,TRNS,TRNS,TRNS,TRNS,
                                       TRNS,TRNS,
                                            TRNS,
                                  TRNS,TRNS,TRNS,
         // right hand
-             F7,  F8,  F9,  F10, F11, F12, FN0,
-             TRNS,P6,  P7,  P8,  P9,  P0,  TRNS,
-                  TRNS,U,   TRNS,TRNS,TRNS,TRNS,
+             F7  ,F8  ,F9  ,F10 ,F11 ,F12 ,FN0 ,
+             TRNS,P6  ,P7  ,P8  ,P9  ,P0  ,TRNS,
+                  TRNS,U   ,TRNS,TRNS,TRNS,TRNS,
              TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
                        TRNS,TRNS,TRNS,TRNS,TRNS,
         TRNS,TRNS,
@@ -251,19 +251,19 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     KEYMAP(  // Layer7: F-keys only, leftled:top/white
         // left hand
-        FN0, NO,  NO,  NO,  NO,  NO,  NO,
-        FN1, F13, F14, F15, F16, NO,  TRNS,
-        TRNS,F17, F18, F19, F20, NO,
-        TRNS,F21, F22, F23, F24, NO,  TRNS,
+        FN0 ,NO  ,NO  ,NO  ,NO  ,NO  ,NO  ,
+        FN1 ,F13 ,F14 ,F15 ,F16 ,NO  ,TRNS,
+        TRNS,F17 ,F18 ,F19 ,F20 ,NO  ,
+        TRNS,F21 ,F22 ,F23 ,F24 ,NO  ,TRNS,
         TRNS,TRNS,TRNS,TRNS,TRNS,
                                       TRNS,TRNS,
                                            TRNS,
                                  TRNS,TRNS,TRNS,
         // right hand
-             NO,  NO,  NO,  NO,  NO,  NO,  TRNS,
-             TRNS,NO,  F1,  F2,  F3,  F4,  TRNS,
-                  NO,  F5,  F6,  F7,  F8,  TRNS,
-             TRNS,NO,  F9,  F10, F11, F12, TRNS,
+             NO  ,NO  ,NO  ,NO  ,NO  ,NO  ,TRNS,
+             TRNS,NO  ,F1  ,F2  ,F3  ,F4  ,TRNS,
+                  NO  ,F5  ,F6  ,F7  ,F8  ,TRNS,
+             TRNS,NO  ,F9  ,F10 ,F11 ,F12 ,TRNS,
                        TRNS,TRNS,TRNS,TRNS,TRNS,
         TRNS,TRNS,
         TRNS,
@@ -272,20 +272,20 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     KEYMAP(  // Layer8: mouse and navigation, leftled:mid/blue+bot/green
         // left hand
-        TRNS,NO,  NO,  NO,  NO,  NO,  NO,
-        TRNS,NO,  NO,  NO,  ACL0,NO,  TRNS,
-        TRNS,NO,  NO,  TRNS,ACL1,NO,
-        TRNS,NO,  NO,  TRNS,ACL2,NO,  TRNS,
+        TRNS,NO  ,NO  ,NO  ,NO  ,NO  ,NO  ,
+        TRNS,NO  ,NO  ,NO  ,ACL0,NO  ,TRNS,
+        TRNS,NO  ,NO  ,TRNS,ACL1,NO  ,
+        TRNS,NO  ,NO  ,TRNS,ACL2,NO  ,TRNS,
         TRNS,TRNS,TRNS,TRNS,TRNS,
                                       TRNS,TRNS,
                                            TRNS,
                                  TRNS,TRNS,TRNS,
 
         // right hand
-             F16, MPLY,MPRV,MNXT,VOLD,VOLU,MUTE,
-             F14, BTN2,WH_L,WH_U,WH_D,WH_R,PGUP,
+             F16 ,MPLY,MPRV,MNXT,VOLD,VOLU,MUTE,
+             F14 ,BTN2,WH_L,WH_U,WH_D,WH_R,PGUP,
                   BTN1,MS_L,MS_U,MS_D,MS_R,PGDN,
-             F15, BTN3,HOME,END, DEL, INS, NO,
+             F15 ,BTN3,HOME,END ,DEL ,INS ,NO  ,
                        TRNS,TRNS,TRNS,TRNS,TRNS,
         TRNS,TRNS,
         TRNS,
@@ -294,19 +294,19 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     KEYMAP(  // Layer9: application-specific shortcuts (mostly browser), leftled:top/white+bot/green
         // left hand
-        TRNS,NO,  NO,  NO,  NO,  NO,  NO,
-        TRNS,NO,  NO,  NO,  NO,  NO,  TRNS,
-        TRNS,NO,  NO,  NO,  NO,  NO,
-        TRNS,NO,  NO,  NO,  TRNS,NO,  TRNS,
+        TRNS,NO  ,NO  ,NO  ,NO  ,NO  ,NO  ,
+        TRNS,NO  ,NO  ,NO  ,NO  ,NO  ,TRNS,
+        TRNS,NO  ,NO  ,NO  ,NO  ,NO  ,
+        TRNS,NO  ,NO  ,NO  ,TRNS,NO  ,TRNS,
         TRNS,TRNS,TRNS,TRNS,TRNS,
                                       TRNS,TRNS,
                                            TRNS,
                                  TRNS,TRNS,TRNS,
         // right hand
-             NO,  NO,  NO,  NO,  NO,  NO,  TRNS,
-             TRNS,NO,  FN12,FN13,FN14,FN15,FN10,
-                  FN1, FN2, FN3, FN4, FN5, FN11,
-             TRNS,TRNS,FN6, FN7, FN8, FN9, FN0,
+             NO  ,NO  ,NO  ,NO  ,NO  ,NO  ,TRNS,
+             TRNS,NO  ,FN12,FN13,FN14,FN15,FN10,
+                  FN1 ,FN2 ,FN3 ,FN4 ,FN5 ,FN11,
+             TRNS,TRNS,FN6 ,FN7 ,FN8 ,FN9 ,FN0 ,
                        TRNS,TRNS,TRNS,TRNS,TRNS,
         TRNS,TRNS,
         TRNS,
@@ -318,19 +318,19 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     KEYMAP(  // LayerN: transparent on edges + hard-defined thumb keys, all others are empty
         // left hand
-        TRNS,NO,  NO,  NO,  NO,  NO,  NO,
-        TRNS,NO,  NO,  NO,  NO,  NO,  TRNS,
-        TRNS,NO,  NO,  NO,  NO,  NO,
-        TRNS,NO,  NO,  NO,  NO,  NO,  TRNS,
+        TRNS,NO  ,NO  ,NO  ,NO  ,NO  ,NO  ,
+        TRNS,NO  ,NO  ,NO  ,NO  ,NO  ,TRNS,
+        TRNS,NO  ,NO  ,NO  ,NO  ,NO  ,
+        TRNS,NO  ,NO  ,NO  ,NO  ,NO  ,TRNS,
         TRNS,TRNS,TRNS,LALT,LGUI,
                                       TRNS,TRNS,
                                            TRNS,
                                  LCTL,LSFT,TRNS,
         // right hand
-             NO,  NO,  NO,  NO,  NO,  NO,  TRNS,
-             TRNS,NO,  NO,  NO,  NO,  NO,  TRNS,
-                  NO,  NO,  NO,  NO,  NO,  TRNS,
-             TRNS,NO,  NO,  NO,  NO,  NO,  TRNS,
+             NO  ,NO  ,NO  ,NO  ,NO  ,NO  ,TRNS,
+             TRNS,NO  ,NO  ,NO  ,NO  ,NO  ,TRNS,
+                  NO  ,NO  ,NO  ,NO  ,NO  ,TRNS,
+             TRNS,NO  ,NO  ,NO  ,NO  ,NO  ,TRNS,
                        RGUI,RALT,TRNS,TRNS,TRNS,
         TRNS,TRNS,
         TRNS,
