@@ -46,16 +46,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
                         kB1,kB2,kB3,        kB5,kB6,kB7 )                                                               \
                                                                                                                         \
                                                                                                                         \
-   /* matrix positions */                                                                                               \
+   /* matrix positions, k40 & k4B unused for now */                                                                     \
    /* pins */                                                                                                           \
-   /* D0       D1       D2       D3       D4        D5       D7        F0       F1       F4       F5       F6       */              \
-   {                                                                                                                                \
-    { KC_##k00,KC_##k10,KC_##k20,KC_##k30,KC_##k40, KC_NO   ,KC_NO   , KC_##k06,KC_##k16,KC_##k26,KC_##k36,KC_##k48},  /* B0 */    \
-    { KC_##k01,KC_##k11,KC_##k21,KC_##k31,KC_##k41, KC_NO   ,KC_NO   , KC_##k08,KC_##k18,KC_##k28,KC_##k38,KC_##k47},  /* B1 */    \
-    { KC_##k02,KC_##k12,KC_##k22,KC_##k32,KC_##k42, KC_NO   ,KC_NO   , KC_##k07,KC_##k17,KC_##k27,KC_##k37,KC_NO   },  /* B2 */    \
-    { KC_##k03,KC_##k13,KC_##k23,KC_##k33,KC_##k43, KC_NO   ,KC_NO   , KC_##k0B,KC_##k1B,KC_##k2B,KC_##k3B,KC_##k4B},  /* B3 */    \
-    { KC_##k04,KC_##k14,KC_##k24,KC_##k34,KC_NO   , KC_NO   ,KC_NO   , KC_##k09,KC_##k19,KC_##k29,KC_##k39,KC_##k49},  /* B4 */    \
-    { KC_##k05,KC_##k15,KC_##k25,KC_##k35,KC_##k44, KC_NO   ,KC_NO   , KC_##k0A,KC_##k1A,KC_##k2A,KC_##k3A,KC_##k4A}   /* B5 */    \
+   /* D0       D1       D2       D3       D4         F0       F1       F4       F5       F6       */              \
+   {                                                                                                              \
+    { KC_##k00,KC_##k10,KC_##k20,KC_##k30,KC_##k40,  KC_##k06,KC_##k16,KC_##k26,KC_##k36,KC_##k48},  /* B0 */    \
+    { KC_##k01,KC_##k11,KC_##k21,KC_##k31,KC_##k41,  KC_##k08,KC_##k18,KC_##k28,KC_##k38,KC_##k47},  /* B1 */    \
+    { KC_##k02,KC_##k12,KC_##k22,KC_##k32,KC_##k42,  KC_##k07,KC_##k17,KC_##k27,KC_##k37,KC_NO   },  /* B2 */    \
+    { KC_##k03,KC_##k13,KC_##k23,KC_##k33,KC_##k43,  KC_##k0B,KC_##k1B,KC_##k2B,KC_##k3B,KC_##k4B},  /* B3 */    \
+    { KC_##k04,KC_##k14,KC_##k24,KC_##k34,KC_NO   ,  KC_##k09,KC_##k19,KC_##k29,KC_##k39,KC_##k4A},  /* B4 */    \
+    { KC_##k05,KC_##k15,KC_##k25,KC_##k35,KC_##k44,  KC_##k0A,KC_##k1A,KC_##k2A,KC_##k3A,KC_##k49}   /* B5 */    \
    }
 
 
