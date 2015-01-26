@@ -33,7 +33,7 @@ Project located at <https://github.com/benblazak/ergodox-firmware>
 #define PRODUCT         Teenesis
 #define DESCRIPTION     t.m.k. keyboard firmware for Kinesis
 
-#define MATRIX_ROWS 7
+#define MATRIX_ROWS 6
 #define MATRIX_COLS 12
 
 #define MOUSEKEY_DELAY          100
