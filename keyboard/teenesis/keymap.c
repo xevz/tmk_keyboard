@@ -62,7 +62,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KEYMAP(  // layer 0 : default
-        ESC ,1   ,2   ,3   ,4   ,5   ,               6   ,7   ,8   ,9   ,0   ,EQL ,
+        ESC ,1   ,2   ,3   ,4   ,5   ,               FN23,7   ,8   ,9   ,0   ,EQL ,
         FN2 ,Q   ,W   ,E   ,R   ,FN1 ,               FN24,U   ,I   ,O   ,P   ,LBRC,
         FN11,FN28,FN29,FN30,FN31,FN3 ,               FN25,J   ,K   ,L   ,SCLN,FN15,
         FN12,Z   ,X   ,C   ,FN27,FN4 ,               FN26,M   ,COMM,DOT ,SLSH,FN16,
@@ -137,10 +137,10 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         FN0 ,F1  ,F2  ,F3  ,F4  ,F5  ,               F6  ,F7  ,F8  ,F9  ,F10 ,FN0 ,
         TRNS,P1  ,P2  ,P3  ,P4  ,P5  ,               TRNS,P7  ,P8  ,P9  ,P0  ,TRNS,
         TRNS,TRNS,TRNS,E   ,TRNS,TRNS,               TRNS,U   ,TRNS,TRNS,TRNS,TRNS,
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,               TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
-        FN18,TRNS,TRNS,TRNS,TRNS,                         TRNS,TRNS,TRNS,TRNS,TRNS,
+        TRNS,TRNS,TRNS,TRNS,TRNS,FN1 ,               TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
+        TRNS,TRNS,TRNS,TRNS,TRNS,                         TRNS,TRNS,TRNS,TRNS,TRNS,
                                  TRNS,TRNS,     TRNS,TRNS,
-                                      TRNS,     TRNS,
+                                      SLEP,     TRNS,
                             TRNS,TRNS,TRNS,     TRNS,TRNS,TRNS
     ),
 
@@ -150,9 +150,9 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     KEYMAP(  // Layer7: F-keys only, leftled:top/white
         FN0 ,NO  ,NO  ,NO  ,NO  ,NO  ,               NO  ,NO  ,NO  ,NO  ,NO  ,TRNS,
-        FN1 ,F13 ,F14 ,F15 ,F16 ,NO  ,               NO  ,F1  ,F2  ,F3  ,F4  ,TRNS,
+        FN1 ,F13 ,F14 ,F15 ,F16 ,NO  ,               TRNS,F1  ,F2  ,F3  ,F4  ,TRNS,
         TRNS,F17 ,F18 ,F19 ,F20 ,NO  ,               NO  ,F5  ,F6  ,F7  ,F8  ,TRNS,
-        TRNS,F21 ,F22 ,F23 ,F24 ,NO  ,               NO  ,F9  ,F10 ,F11 ,F12 ,TRNS,
+        TRNS,F21 ,F22 ,F23 ,F24 ,TRNS,               NO  ,F9  ,F10 ,F11 ,F12 ,TRNS,
         TRNS,TRNS,TRNS,TRNS,TRNS,                         TRNS,TRNS,TRNS,TRNS,TRNS,
                                  TRNS,TRNS,     TRNS,TRNS,
                                       TRNS,     TRNS,
@@ -264,7 +264,7 @@ static const uint16_t PROGMEM fn_actions[] = {
     [21] =  ACTION_FUNCTION_TAP(L_CTRL_ALT_ENT),            // FN21 - momentary Layer5+CTRL+ALT on Enter, to use with F* keys on top row
     [22] =  ACTION_FUNCTION_TAP(R_CTRL_ALT_ENT),            // FN22 - momentary Layer6+CTRL+ALT on Enter, to use with F* keys on top row + utils
 
-    [23] =  ACTION_LAYER_TAP_KEY(7, KC_BSLS),               // FN23 - momentary Layer7 on ' , to use with F* keys (F1-F24)
+    [23] =  ACTION_LAYER_TAP_KEY(7, 6),                     // FN23 - momentary Layer7 on '6' , to use with F* keys (F1-F24)
 
     // unused:[24] =  ACTION_LAYER_TAP_KEY(4, KC_Z),                  // FN24 = momentary Layer4 on Z key, to use with unconvenient keys
     // unused:[25] =  ACTION_LAYER_TAP_KEY(3, KC_X),                  // FN25 = momentary Layer3 on X key, to use with F* keys
@@ -293,6 +293,11 @@ static const uint16_t PROGMEM fn_actions_4[] = {
     [3]  =  ACTION_MODS_KEY(MOD_LSFT, KC_COMM),             // FN3  = Shifted comma     // < in Workman
     [4]  =  ACTION_MODS_KEY(MOD_LSFT, KC_DOT),              // FN4  = Shifted dot       // > in Workman
     [5]  =  ACTION_MODS_KEY(MOD_LSFT, KC_SLSH),             // FN5  = Shifted slash     // ? in Workman
+};
+
+static const uint16_t PROGMEM fn_actions_6[] = {
+    [0]  =  ACTION_FUNCTION(TEENSY_KEY),                    // FN0  = Teensy key
+    [1]  =  ACTION_LAYER_SET(1, ON_BOTH),                   // FN1  = set Layer1
 };
 
 static const uint16_t PROGMEM fn_actions_7[] = {
@@ -349,8 +354,8 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
         */
 
         if (record->tap.count == 0 || record->tap.interrupted) {
-            uint8_t weak_mods;
-            uint8_t layer;
+            uint8_t weak_mods = 0;
+            uint8_t layer = 0;
 
             if (id == L_CTRL_ALT_ENT || id == L_CTRL_ALT_T) {
                 weak_mods = MOD_BIT(KC_LCTL) | MOD_BIT(KC_LALT);
@@ -425,6 +430,7 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt) {
 
 #define FN_ACTIONS_SIZE     (sizeof(fn_actions)   / sizeof(fn_actions[0]))
 #define FN_ACTIONS_4_SIZE   (sizeof(fn_actions_4) / sizeof(fn_actions_4[0]))
+#define FN_ACTIONS_6_SIZE   (sizeof(fn_actions_6) / sizeof(fn_actions_6[0]))
 #define FN_ACTIONS_7_SIZE   (sizeof(fn_actions_7) / sizeof(fn_actions_7[0]))
 #define FN_ACTIONS_9_SIZE   (sizeof(fn_actions_9) / sizeof(fn_actions_9[0]))
 
@@ -441,6 +447,10 @@ action_t keymap_fn_to_action(uint8_t keycode)
 
     if (layer == 4 && FN_INDEX(keycode) < FN_ACTIONS_4_SIZE) {
         action.code = pgm_read_word(&fn_actions_4[FN_INDEX(keycode)]);
+    }
+
+    if (layer == 6 && FN_INDEX(keycode) < FN_ACTIONS_6_SIZE) {
+        action.code = pgm_read_word(&fn_actions_6[FN_INDEX(keycode)]);
     }
 
     if (layer == 7 && FN_INDEX(keycode) < FN_ACTIONS_7_SIZE) {
