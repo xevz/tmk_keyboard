@@ -264,7 +264,7 @@ static const uint16_t PROGMEM fn_actions[] = {
     [21] =  ACTION_FUNCTION_TAP(L_CTRL_ALT_ENT),            // FN21 - momentary Layer5+CTRL+ALT on Enter, to use with F* keys on top row
     [22] =  ACTION_FUNCTION_TAP(R_CTRL_ALT_ENT),            // FN22 - momentary Layer6+CTRL+ALT on Enter, to use with F* keys on top row + utils
 
-    [23] =  ACTION_LAYER_TAP_KEY(7, 6),                     // FN23 - momentary Layer7 on '6' , to use with F* keys (F1-F24)
+    [23] =  ACTION_LAYER_TAP_KEY(7, KC_6),                  // FN23 - momentary Layer7 on '6' , to use with F* keys (F1-F24)
 
     // unused:[24] =  ACTION_LAYER_TAP_KEY(4, KC_Z),                  // FN24 = momentary Layer4 on Z key, to use with unconvenient keys
     // unused:[25] =  ACTION_LAYER_TAP_KEY(3, KC_X),                  // FN25 = momentary Layer3 on X key, to use with F* keys
