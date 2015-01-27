@@ -124,7 +124,7 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     KEYMAP(  // Layer5: F-keys instead of numbers, leftled:top/white
         TRNS,F1  ,F2  ,F3  ,F4  ,F5  ,               F6  ,F7  ,F8  ,F9  ,F10 ,TRNS,
-        TRNS,P1  ,P2  ,P3  ,P4  ,P5  ,               P6  ,P7  ,P8  ,P9  ,P0  ,TRNS,
+        TRNS,P1  ,P2  ,P3  ,P4  ,TRNS,               P6  ,P7  ,P8  ,P9  ,P0  ,TRNS,
         TRNS,TRNS,TRNS,E   ,TRNS,TRNS,               TRNS,U   ,TRNS,TRNS,TRNS,TRNS,
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,               TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
         TRNS,TRNS,TRNS,TRNS,TRNS,                         TRNS,TRNS,TRNS,TRNS,TRNS,
@@ -135,7 +135,7 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     KEYMAP(  // Layer6: F-keys + utils(Teensy, Workman-layer switch), leftled:top/white+onboard
         FN0 ,F1  ,F2  ,F3  ,F4  ,F5  ,               F6  ,F7  ,F8  ,F9  ,F10 ,FN0 ,
-        TRNS,P1  ,P2  ,P3  ,P4  ,P5  ,               P6  ,P7  ,P8  ,P9  ,P0  ,TRNS,
+        TRNS,P1  ,P2  ,P3  ,P4  ,P5  ,               TRNS,P7  ,P8  ,P9  ,P0  ,TRNS,
         TRNS,TRNS,TRNS,E   ,TRNS,TRNS,               TRNS,U   ,TRNS,TRNS,TRNS,TRNS,
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,               TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
         FN18,TRNS,TRNS,TRNS,TRNS,                         TRNS,TRNS,TRNS,TRNS,TRNS,
@@ -340,6 +340,14 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
         || id == L_CTRL_ALT_T
         || id == R_CTRL_ALT_Y
     ) {
+        // debug
+        /*
+        if (record->event.pressed) dprint("P"); else dprint("R");
+        dprintf("%d", record->tap.count);
+        if (record->tap.interrupted) dprint("i");
+        dprint("\n");
+        */
+
         if (record->tap.count == 0 || record->tap.interrupted) {
             uint8_t weak_mods;
             uint8_t layer;
@@ -350,7 +358,7 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
             } else if (id == R_CTRL_ALT_ENT || id == R_CTRL_ALT_Y) {
                 weak_mods = MOD_BIT(KC_RCTL) | MOD_BIT(KC_RALT);
                 layer     = 6;
-            // } else {
+            } else {
                 // do nothing - this should never happen
             }
 
@@ -380,7 +388,7 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
                 } else {
                     del_key(KC_Y);
                 }
-            // } else {
+            } else {
                 // do nothing - this should never happen
             }
 
