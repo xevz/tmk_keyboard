@@ -63,9 +63,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KEYMAP(  // layer 0 : default
         ESC ,1   ,2   ,3   ,4   ,5   ,               6   ,7   ,8   ,9   ,0   ,EQL ,
-        FN2 ,Q   ,W   ,E   ,R   ,T   ,               Y   ,U   ,I   ,O   ,P   ,LBRC,
-        FN11,FN28,FN29,FN30,FN31,G   ,               H   ,J   ,K   ,L   ,SCLN,FN15,
-        FN12,FN24,FN25,FN26,FN27,B   ,               N   ,M   ,COMM,DOT ,SLSH,FN16,
+        FN2 ,Q   ,W   ,E   ,R   ,FN1 ,               FN24,U   ,I   ,O   ,P   ,LBRC,
+        FN11,FN28,FN29,FN30,FN31,FN3 ,               FN25,J   ,K   ,L   ,SCLN,FN15,
+        FN12,Z   ,X   ,C   ,FN27,FN4 ,               FN26,M   ,COMM,DOT ,SLSH,FN16,
         FN21,FN20,CAPS,FN13,FN14,                         LEFT,UP  ,DOWN,RGHT,FN22,
                                  FN17,FN19,     PGUP,LGUI,
                                       NO  ,     PGDN,
@@ -216,6 +216,8 @@ enum function_id {
     CUSTOM_KEY,
     L_CTRL_ALT_ENT,
     R_CTRL_ALT_ENT,
+    L_CTRL_ALT_T,
+    R_CTRL_ALT_Y,
 };
 
 enum macro_id {
@@ -229,18 +231,18 @@ enum macro_id {
  * Fn action definition
  */
 static const uint16_t PROGMEM fn_actions[] = {
-    [0] =   ACTION_FUNCTION(TEENSY_KEY),                    // FN0  - Teensy key
+    [0]  =  ACTION_FUNCTION(TEENSY_KEY),                    // FN0  - Teensy key
 
-    [1] =   ACTION_MODS_KEY(MOD_LSFT, KC_BSLS),             // FN1  = Shifted BackSlash // " in Workman
-    [2] =   ACTION_MODS_KEY(MOD_LSFT, KC_MINS),             // FN2  = Shifted Minus     // \ in Workman
-    [3] =   ACTION_MODS_KEY(MOD_LSFT, KC_COMM),             // FN3  = Shifted comma     // < in Workman
-    [4] =   ACTION_MODS_KEY(MOD_LSFT, KC_DOT),              // FN4  = Shifted dot       // > in Workman
+    // unused: [1]  =  ACTION_MODS_KEY(MOD_LSFT, KC_BSLS),  // FN1  = Shifted BackSlash // " in Workman
+    [2]  =  ACTION_MODS_KEY(MOD_LSFT, KC_MINS),             // FN2  = Shifted Minus     // \ in Workman
+    // unused: [3]  =  ACTION_MODS_KEY(MOD_LSFT, KC_COMM),  // FN3  = Shifted comma     // < in Workman
+    // unused: [4]  =  ACTION_MODS_KEY(MOD_LSFT, KC_DOT),   // FN4  = Shifted dot       // > in Workman
 
-    [5] =   ACTION_MODS_TAP_KEY(MOD_LCTL, KC_BSPC),         // FN5  = LShift with tap BackSpace
-    [6] =   ACTION_MODS_TAP_KEY(MOD_LSFT, KC_DEL),          // FN6  = LCtrl  with tap Delete
-    [7] =   ACTION_MODS_TAP_KEY(MOD_LALT, KC_ESC),          // FN7  = LAlt   with tap Escape
-    [8] =   ACTION_MODS_TAP_KEY(MOD_RGUI, KC_INS),          // FN8  = RGui   with tap Ins
-    [9] =   ACTION_MODS_TAP_KEY(MOD_RSFT, KC_ENT),          // FN9  = RShift with tap Enter
+    [5]  =  ACTION_MODS_TAP_KEY(MOD_LCTL, KC_BSPC),         // FN5  = LShift with tap BackSpace
+    [6]  =  ACTION_MODS_TAP_KEY(MOD_LSFT, KC_DEL),          // FN6  = LCtrl  with tap Delete
+    [7]  =  ACTION_MODS_TAP_KEY(MOD_LALT, KC_ESC),          // FN7  = LAlt   with tap Escape
+    [8]  =  ACTION_MODS_TAP_KEY(MOD_RGUI, KC_INS),          // FN8  = RGui   with tap Ins
+    [9]  =  ACTION_MODS_TAP_KEY(MOD_RSFT, KC_ENT),          // FN9  = RShift with tap Enter
     [10] =  ACTION_MODS_TAP_KEY(MOD_RCTL, KC_SPC),          // FN10 = RCtrl  with tap Space
 
     [11] =  ACTION_MODS_TAP_KEY(MOD_LSFT, KC_TAB),          // FN11 = LShift with tap Tab
@@ -254,25 +256,35 @@ static const uint16_t PROGMEM fn_actions[] = {
     [18] =  ACTION_LAYER_SET(1, ON_BOTH),                   // FN18 - set Layer1, to use Workman layout at firmware level
     [19] =  ACTION_LAYER_SET(2, ON_BOTH),                   // FN19 - set Layer2, to use with Numpad keys
 
+    // i'd like to remove this - will try to get used to live without this and convert them to usual keys
+    [20] =  ACTION_LAYER_MOMENTARY(2),                      // FN20 - momentary Layer2, to use with Numpad keys
+// or
+//  [20] =  ACTION_FUNCTION_TAP(CUSTOM_KEY),                // FN20 - use custom key, with tapping support
+
     [21] =  ACTION_FUNCTION_TAP(L_CTRL_ALT_ENT),            // FN21 - momentary Layer5+CTRL+ALT on Enter, to use with F* keys on top row
     [22] =  ACTION_FUNCTION_TAP(R_CTRL_ALT_ENT),            // FN22 - momentary Layer6+CTRL+ALT on Enter, to use with F* keys on top row + utils
+
+    [23] =  ACTION_LAYER_TAP_KEY(7, KC_BSLS),               // FN23 - momentary Layer7 on ' , to use with F* keys (F1-F24)
+
+    // unused:[24] =  ACTION_LAYER_TAP_KEY(4, KC_Z),                  // FN24 = momentary Layer4 on Z key, to use with unconvenient keys
+    // unused:[25] =  ACTION_LAYER_TAP_KEY(3, KC_X),                  // FN25 = momentary Layer3 on X key, to use with F* keys
+    // unused:[26] =  ACTION_LAYER_TAP_KEY(8, KC_C),                  // FN26 = momentary Layer8 on C key, to use with mouse and navigation keys
+    [27] =  ACTION_LAYER_TAP_KEY(9, KC_V),                  // FN27 = momentary Layer9 on V key, to use with application-specific shortcuts
 
     [28] =  ACTION_LAYER_TAP_KEY(4, KC_A),                  // FN28 = momentary Layer4 on A key, to use with unconvenient keys
     [29] =  ACTION_LAYER_TAP_KEY(3, KC_S),                  // FN29 = momentary Layer3 on S key, to use with F* keys
     [30] =  ACTION_LAYER_TAP_KEY(8, KC_D),                  // FN30 = momentary Layer8 on D key, to use with mouse and navigation keys
     [31] =  ACTION_LAYER_TAP_KEY(2, KC_F),                  // FN31 = momentary Layer2 on F key, to use with Numpad keys
 
-    // i'd like to remove this - will try to get used to live without this and convert them to usual keys
-    [20] =  ACTION_LAYER_MOMENTARY(2),                      // FN20 - momentary Layer2, to use with Numpad keys
-// or
-//  [20] =  ACTION_FUNCTION_TAP(CUSTOM_KEY),                // FN20 - use custom key, with tapping support
+    // new, on kinesis only
+    // unused are: 1, 3, 4, 24, 25, 26
+    [1]  =  ACTION_FUNCTION_TAP(L_CTRL_ALT_T),              // FN1  = momentary Layer5+CTRL+ALT on T, to use with F* keys on top row
+    [3]  =  ACTION_MODS_TAP_KEY(MOD_LGUI,          KC_G),   // FN3  = LGui      with tap G
+    [4]  =  ACTION_MODS_TAP_KEY(MOD_LGUI|MOD_LALT, KC_B),   // FN4  = LGui+LAlt with tap B
 
-    [23] =  ACTION_LAYER_TAP_KEY(7, KC_BSLS),               // FN23 - momentary Layer7 on ' , to use with F* keys (F1-F24)
-
-    [24] =  ACTION_LAYER_TAP_KEY(4, KC_Z),                  // FN24 = momentary Layer4 on Z key, to use with unconvenient keys
-    [25] =  ACTION_LAYER_TAP_KEY(3, KC_X),                  // FN25 = momentary Layer3 on X key, to use with F* keys
-    [26] =  ACTION_LAYER_TAP_KEY(8, KC_C),                  // FN26 = momentary Layer8 on C key, to use with mouse and navigation keys
-    [27] =  ACTION_LAYER_TAP_KEY(9, KC_V),                  // FN27 = momentary Layer9 on V key, to use with application-specific shortcuts
+    [24]  =  ACTION_FUNCTION_TAP(R_CTRL_ALT_Y),             // FN24 = momentary Layer6+CTRL+ALT on Y, to use with F* keys on top row + utils
+    [25] =  ACTION_MODS_TAP_KEY(MOD_RGUI,          KC_H),   // FN25 = RGui      with tap H
+    [26] =  ACTION_MODS_TAP_KEY(MOD_RGUI|MOD_RALT, KC_N),   // FN26 = RGui+LAlt with tap N
 };
 
 static const uint16_t PROGMEM fn_actions_4[] = {
@@ -323,17 +335,23 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
         print("not supported.\n");
     }
 
-    if (id == L_CTRL_ALT_ENT || id == R_CTRL_ALT_ENT) {
+    if (   id == L_CTRL_ALT_ENT
+        || id == R_CTRL_ALT_ENT
+        || id == L_CTRL_ALT_T
+        || id == R_CTRL_ALT_Y
+    ) {
         if (record->tap.count == 0 || record->tap.interrupted) {
-            uint8_t weak_mods;
-            uint8_t layer;
+            uint8_t weak_mods   = 0;
+            uint8_t layer       = 0;
 
-            if (id == L_CTRL_ALT_ENT) {
+            if (id == L_CTRL_ALT_ENT || id == L_CTRL_ALT_T) {
                 weak_mods = MOD_BIT(KC_LCTL) | MOD_BIT(KC_LALT);
                 layer     = 5;
-            } else {
+            } else if (id == R_CTRL_ALT_ENT || id == R_CTRL_ALT_Y) {
                 weak_mods = MOD_BIT(KC_RCTL) | MOD_BIT(KC_RALT);
                 layer     = 6;
+            } else {
+                // do nothing - this should never happen
             }
 
             if (record->event.pressed) {
@@ -344,13 +362,28 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
                 layer_off(layer);
             }
         } else {
-            if (record->event.pressed) {
-                add_key(KC_ENT);
-                send_keyboard_report();
+            if (id == L_CTRL_ALT_ENT || id == R_CTRL_ALT_ENT) {
+                if (record->event.pressed) {
+                    add_key(KC_ENT);
+                } else {
+                    del_key(KC_ENT);
+                }
+            } else if (id == L_CTRL_ALT_T) {
+                if (record->event.pressed) {
+                    add_key(KC_T);
+                } else {
+                    del_key(KC_T);
+                }
+            } else if (id == R_CTRL_ALT_Y) {
+                if (record->event.pressed) {
+                    add_key(KC_Y);
+                } else {
+                    del_key(KC_Y);
+                }
             } else {
-                del_key(KC_ENT);
-                send_keyboard_report();
+                // do nothing - this should never happen
             }
+            send_keyboard_report();
         }
     }
 }
