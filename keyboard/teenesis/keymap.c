@@ -123,7 +123,7 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     KEYMAP(  // Layer5: F-keys instead of numbers, leftled:top/white
-        F1  ,F2  ,F3  ,F4  ,F5  ,F6  ,               F7  ,F8  ,F9  ,F10 ,F11 ,F12 ,
+        TRNS,F1  ,F2  ,F3  ,F4  ,F5  ,               F6  ,F7  ,F8  ,F9  ,F10 ,TRNS,
         TRNS,P1  ,P2  ,P3  ,P4  ,P5  ,               P6  ,P7  ,P8  ,P9  ,P0  ,TRNS,
         TRNS,TRNS,TRNS,E   ,TRNS,TRNS,               TRNS,U   ,TRNS,TRNS,TRNS,TRNS,
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,               TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
@@ -279,12 +279,12 @@ static const uint16_t PROGMEM fn_actions[] = {
     // new, on kinesis only
     // unused are: 1, 3, 4, 24, 25, 26
     [1]  =  ACTION_FUNCTION_TAP(L_CTRL_ALT_T),              // FN1  = momentary Layer5+CTRL+ALT on T, to use with F* keys on top row
-    [3]  =  ACTION_MODS_TAP_KEY(MOD_LGUI,          KC_G),   // FN3  = LGui      with tap G
-    [4]  =  ACTION_MODS_TAP_KEY(MOD_LGUI|MOD_LALT, KC_B),   // FN4  = LGui+LAlt with tap B
+    [3]  =  ACTION_MODS_TAP_KEY(MOD_LGUI|MOD_LALT, KC_G),   // FN3  = LGui+LAlt with tap G
+    [4]  =  ACTION_MODS_TAP_KEY(MOD_LGUI,          KC_B),   // FN4  = LGui      with tap B
 
-    [24]  =  ACTION_FUNCTION_TAP(R_CTRL_ALT_Y),             // FN24 = momentary Layer6+CTRL+ALT on Y, to use with F* keys on top row + utils
-    [25] =  ACTION_MODS_TAP_KEY(MOD_RGUI,          KC_H),   // FN25 = RGui      with tap H
-    [26] =  ACTION_MODS_TAP_KEY(MOD_RGUI|MOD_RALT, KC_N),   // FN26 = RGui+LAlt with tap N
+    [24] =  ACTION_FUNCTION_TAP(R_CTRL_ALT_Y),              // FN24 = momentary Layer6+CTRL+ALT on Y, to use with F* keys on top row + utils
+    [25] =  ACTION_MODS_TAP_KEY(MOD_LGUI|MOD_LALT, KC_H),   // FN25 = RGui+LAlt with tap H
+    [26] =  ACTION_MODS_TAP_KEY(MOD_LGUI,          KC_N),   // FN26 = RGui      with tap N
 };
 
 static const uint16_t PROGMEM fn_actions_4[] = {
@@ -341,8 +341,8 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
         || id == R_CTRL_ALT_Y
     ) {
         if (record->tap.count == 0 || record->tap.interrupted) {
-            uint8_t weak_mods   = 0;
-            uint8_t layer       = 0;
+            uint8_t weak_mods;
+            uint8_t layer;
 
             if (id == L_CTRL_ALT_ENT || id == L_CTRL_ALT_T) {
                 weak_mods = MOD_BIT(KC_LCTL) | MOD_BIT(KC_LALT);
@@ -350,7 +350,7 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
             } else if (id == R_CTRL_ALT_ENT || id == R_CTRL_ALT_Y) {
                 weak_mods = MOD_BIT(KC_RCTL) | MOD_BIT(KC_RALT);
                 layer     = 6;
-            } else {
+            // } else {
                 // do nothing - this should never happen
             }
 
@@ -380,9 +380,10 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
                 } else {
                     del_key(KC_Y);
                 }
-            } else {
+            // } else {
                 // do nothing - this should never happen
             }
+
             send_keyboard_report();
         }
     }
