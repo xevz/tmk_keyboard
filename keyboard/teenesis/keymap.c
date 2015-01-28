@@ -62,7 +62,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KEYMAP(  // layer 0 : default
-        ESC ,1   ,2   ,3   ,4   ,5   ,               FN23,7   ,8   ,9   ,0   ,EQL ,
+        GRV ,1   ,2   ,3   ,4   ,5   ,               FN23,7   ,8   ,9   ,0   ,EQL ,
         FN2 ,Q   ,W   ,E   ,R   ,FN1 ,               FN24,U   ,I   ,O   ,P   ,LBRC,
         FN11,FN28,FN29,FN30,FN31,FN3 ,               FN25,J   ,K   ,L   ,SCLN,FN15,
         FN12,Z   ,X   ,C   ,FN27,FN4 ,               FN26,M   ,COMM,DOT ,SLSH,FN16,
@@ -134,10 +134,10 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     KEYMAP(  // Layer6: F-keys + utils(Teensy, Workman-layer switch), leftled:top/white+onboard
-        FN0 ,F1  ,F2  ,F3  ,F4  ,F5  ,               F6  ,F7  ,F8  ,F9  ,F10 ,FN0 ,
+        FN1 ,F1  ,F2  ,F3  ,F4  ,F5  ,               F6  ,F7  ,F8  ,F9  ,F10 ,FN0 ,
         TRNS,P1  ,P2  ,P3  ,P4  ,P5  ,               TRNS,P7  ,P8  ,P9  ,P0  ,TRNS,
         TRNS,TRNS,TRNS,E   ,TRNS,TRNS,               TRNS,U   ,TRNS,TRNS,TRNS,TRNS,
-        TRNS,TRNS,TRNS,TRNS,TRNS,FN1 ,               TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,               TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
         TRNS,TRNS,TRNS,TRNS,TRNS,                         TRNS,TRNS,TRNS,TRNS,TRNS,
                                  TRNS,TRNS,     TRNS,TRNS,
                                       SLEP,     TRNS,
@@ -149,8 +149,8 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //
 
     KEYMAP(  // Layer7: F-keys only, leftled:top/white
-        FN0 ,NO  ,NO  ,NO  ,NO  ,NO  ,               TRNS,NO  ,NO  ,NO  ,NO  ,TRNS,
-        FN1 ,F13 ,F14 ,F15 ,F16 ,TRNS,               TRNS,F1  ,F2  ,F3  ,F4  ,TRNS,
+        FN1 ,NO  ,NO  ,NO  ,NO  ,NO  ,               TRNS,NO  ,NO  ,NO  ,NO  ,FN0 ,
+        FN2 ,F13 ,F14 ,F15 ,F16 ,TRNS,               TRNS,F1  ,F2  ,F3  ,F4  ,TRNS,
         TRNS,F17 ,F18 ,F19 ,F20 ,TRNS,               TRNS,F5  ,F6  ,F7  ,F8  ,TRNS,
         TRNS,F21 ,F22 ,F23 ,F24 ,TRNS,               TRNS,F9  ,F10 ,F11 ,F12 ,TRNS,
         TRNS,TRNS,TRNS,TRNS,TRNS,                         TRNS,TRNS,TRNS,TRNS,TRNS,
@@ -301,10 +301,11 @@ static const uint16_t PROGMEM fn_actions_6[] = {
 };
 
 static const uint16_t PROGMEM fn_actions_7[] = {
-    [0]  =  ACTION_MACRO(XMONAD_RESET),                     // FN0  = xmonad-reanimator
-    [1]  =  ACTION_MACRO(PASSWORD1),                        // FN1  = default password
-    [2]  =  ACTION_MACRO(PASSWORD1),                        // FN2  = other password
-    [3]  =  ACTION_MACRO(PASSWORD1),                        // FN3  = mega password
+    [0]  =  ACTION_FUNCTION(TEENSY_KEY),                    // FN0  = Teensy key
+    [1]  =  ACTION_MACRO(XMONAD_RESET),                     // FN1  = xmonad-reanimator
+    [2]  =  ACTION_MACRO(PASSWORD1),                        // FN2  = default password
+    [3]  =  ACTION_MACRO(PASSWORD1),                        // FN3  = other password
+    [4]  =  ACTION_MACRO(PASSWORD1),                        // FN4  = mega password
 };
 
 static const uint16_t PROGMEM fn_actions_9[] = {
