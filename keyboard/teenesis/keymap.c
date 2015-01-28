@@ -149,7 +149,7 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //
 
     KEYMAP(  // Layer7: F-keys only, leftled:top/white
-        FN0 ,NO  ,NO  ,NO  ,NO  ,NO  ,               NO  ,NO  ,NO  ,NO  ,NO  ,TRNS,
+        FN0 ,NO  ,NO  ,NO  ,NO  ,NO  ,               TRNS,NO  ,NO  ,NO  ,NO  ,TRNS,
         FN1 ,F13 ,F14 ,F15 ,F16 ,TRNS,               TRNS,F1  ,F2  ,F3  ,F4  ,TRNS,
         TRNS,F17 ,F18 ,F19 ,F20 ,TRNS,               TRNS,F5  ,F6  ,F7  ,F8  ,TRNS,
         TRNS,F21 ,F22 ,F23 ,F24 ,TRNS,               TRNS,F9  ,F10 ,F11 ,F12 ,TRNS,
