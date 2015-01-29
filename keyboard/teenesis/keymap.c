@@ -40,7 +40,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     k10,k11,k12,k13,k14,k15,                        k16,k17,k18,k19,k1A,k1B,                                    \
     k20,k21,k22,k23,k24,k25,                        k26,k27,k28,k29,k2A,k2B,                                    \
     k30,k31,k32,k33,k34,k35,                        k36,k37,k38,k39,k3A,k3B,                                    \
-    k40,k41,k42,k43,k44,                                k48,k47,k4A,k49,k4B,                                    \
+    k40,k41,k42,k43,k44,                                k47,k48,k49,k4A,k4B,                                    \
                             k52,k62,        k59,k68,                                                            \
                                 k63,        k58,                                                                \
                         k53,k50,k61,        k56,k67,k66 )                                                       \
@@ -50,12 +50,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
    /* pins */                                                                                                   \
    /* 0: D0    1: D1    2: D2    3: D3    4: D4      5: F0    6: F1    7: F4    8: F5    9: F6      A: F7    B: D5      C: C6    D: C7       */            \
    {                                                                                                                                                       \
-    { KC_##k00,KC_##k10,KC_##k20,KC_##k30,KC_NO   ,  KC_##k06,KC_##k16,KC_##k26,KC_##k36,KC_##k48,  KC_##k50,KC_NO   ,  KC_##k56,KC_##k66},  /* 0: B0 */   \
-    { KC_##k01,KC_##k11,KC_##k21,KC_##k31,KC_##k41,  KC_##k08,KC_##k18,KC_##k28,KC_##k38,KC_##k47,  KC_NO   ,KC_##k61,  KC_NO   ,KC_##k67},  /* 1: B1 */   \
+    { KC_##k00,KC_##k10,KC_##k20,KC_##k30,KC_NO   ,  KC_##k06,KC_##k16,KC_##k26,KC_##k36,KC_##k47,  KC_##k50,KC_NO   ,  KC_##k56,KC_##k66},  /* 0: B0 */   \
+    { KC_##k01,KC_##k11,KC_##k21,KC_##k31,KC_##k41,  KC_##k08,KC_##k18,KC_##k28,KC_##k38,KC_##k48,  KC_NO   ,KC_##k61,  KC_NO   ,KC_##k67},  /* 1: B1 */   \
     { KC_##k02,KC_##k12,KC_##k22,KC_##k32,KC_##k42,  KC_##k07,KC_##k17,KC_##k27,KC_##k37,KC_NO   ,  KC_##k52,KC_##k62,  KC_##k58,KC_##k68},  /* 2: B2 */   \
     { KC_##k03,KC_##k13,KC_##k23,KC_##k33,KC_##k43,  KC_##k0B,KC_##k1B,KC_##k2B,KC_##k3B,KC_NO   ,  KC_##k53,KC_##k63,  KC_##k59,KC_NO   },  /* 3: B3 */   \
-    { KC_##k04,KC_##k14,KC_##k24,KC_##k34,KC_NO   ,  KC_##k09,KC_##k19,KC_##k29,KC_##k39,KC_##k4A,  KC_NO   ,KC_NO   ,  KC_NO   ,KC_NO   },  /* 4: B4 */   \
-    { KC_##k05,KC_##k15,KC_##k25,KC_##k35,KC_##k44,  KC_##k0A,KC_##k1A,KC_##k2A,KC_##k3A,KC_##k49,  KC_NO   ,KC_NO   ,  KC_NO   ,KC_NO   },  /* 5: B5 */   \
+    { KC_##k04,KC_##k14,KC_##k24,KC_##k34,KC_NO   ,  KC_##k09,KC_##k19,KC_##k29,KC_##k39,KC_##k49,  KC_NO   ,KC_NO   ,  KC_NO   ,KC_NO   },  /* 4: B4 */   \
+    { KC_##k05,KC_##k15,KC_##k25,KC_##k35,KC_##k44,  KC_##k0A,KC_##k1A,KC_##k2A,KC_##k3A,KC_##k4A,  KC_NO   ,KC_NO   ,  KC_NO   ,KC_NO   },  /* 5: B5 */   \
    }
 
 
@@ -66,7 +66,7 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         FN2 ,Q   ,W   ,E   ,R   ,FN1 ,               FN24,U   ,I   ,O   ,P   ,LBRC,
         FN11,FN28,FN29,FN30,FN31,FN3 ,               FN25,J   ,K   ,L   ,SCLN,FN15,
         FN12,Z   ,X   ,C   ,FN27,FN4 ,               FN26,M   ,COMM,DOT ,SLSH,FN16,
-        FN21,NO  ,CAPS,FN13,FN14,                         LEFT,UP  ,DOWN,RGHT,FN22,
+        FN21,SPC ,CAPS,FN13,FN14,                         LEFT,UP  ,DOWN,RGHT,FN22,
                                  FN17,FN19,     PGUP,RGUI,
                                       NO  ,     PGDN,
                             FN5 ,FN6 ,FN7 ,     FN8 ,FN9 ,FN10
@@ -84,7 +84,6 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     KEYMAP(  // Layer2: numpad, leftled:mid/blue
-        // left hand
         TRNS,NO  ,NO  ,NO  ,NO  ,PAUS,               NLCK,PSLS,PAST,PAST,PMNS,BSPC,
         TRNS,NO  ,NO  ,NO  ,NO  ,NO  ,               NO  ,P7  ,P8  ,P9  ,PMNS,PGUP,
         TRNS,NO  ,NO  ,NO  ,TRNS,NO  ,               NO  ,P4  ,P5  ,P6  ,PPLS,PGDN,
