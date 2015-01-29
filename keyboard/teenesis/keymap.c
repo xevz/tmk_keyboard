@@ -62,12 +62,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KEYMAP(  // layer 0 : default
-        GRV ,1   ,2   ,3   ,4   ,5   ,               FN23,7   ,8   ,9   ,0   ,EQL ,
+        ESC ,1   ,2   ,3   ,4   ,FN20,               FN23,7   ,8   ,9   ,0   ,EQL ,
         FN2 ,Q   ,W   ,E   ,R   ,FN1 ,               FN24,U   ,I   ,O   ,P   ,LBRC,
         FN11,FN28,FN29,FN30,FN31,FN3 ,               FN25,J   ,K   ,L   ,SCLN,FN15,
         FN12,Z   ,X   ,C   ,FN27,FN4 ,               FN26,M   ,COMM,DOT ,SLSH,FN16,
-        FN21,FN20,CAPS,FN13,FN14,                         LEFT,UP  ,DOWN,RGHT,FN22,
-                                 FN17,FN19,     PGUP,LGUI,
+        FN21,NO  ,CAPS,FN13,FN14,                         LEFT,UP  ,DOWN,RGHT,FN22,
+                                 FN17,FN19,     PGUP,RGUI,
                                       NO  ,     PGDN,
                             FN5 ,FN6 ,FN7 ,     FN8 ,FN9 ,FN10
     ),
@@ -149,14 +149,14 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //
 
     KEYMAP(  // Layer7: F-keys only, leftled:top/white
-        FN1 ,NO  ,NO  ,NO  ,NO  ,NO  ,               TRNS,NO  ,NO  ,NO  ,NO  ,FN0 ,
+        FN1 ,NO  ,NO  ,NO  ,NO  ,TRNS,               TRNS,NO  ,NO  ,NO  ,NO  ,FN0 ,
         FN2 ,F13 ,F14 ,F15 ,F16 ,TRNS,               TRNS,F1  ,F2  ,F3  ,F4  ,TRNS,
         TRNS,F17 ,F18 ,F19 ,F20 ,TRNS,               TRNS,F5  ,F6  ,F7  ,F8  ,TRNS,
         TRNS,F21 ,F22 ,F23 ,F24 ,TRNS,               TRNS,F9  ,F10 ,F11 ,F12 ,TRNS,
         TRNS,TRNS,TRNS,TRNS,TRNS,                         TRNS,TRNS,TRNS,TRNS,TRNS,
-                                 TRNS,TRNS,     TRNS,TRNS,
+                                 SLEP,TRNS,     TRNS,SLEP,
                                       TRNS,     TRNS,
-                            TRNS,TRNS,TRNS,     SLEP,TRNS,TRNS
+                            TRNS,TRNS,TRNS,     TRNS,TRNS,TRNS
     ),
 
     KEYMAP(  // Layer8: mouse and navigation, leftled:mid/blue+bot/green
@@ -257,13 +257,14 @@ static const uint16_t PROGMEM fn_actions[] = {
     [19] =  ACTION_LAYER_SET(2, ON_BOTH),                   // FN19 - set Layer2, to use with Numpad keys
 
     // i'd like to remove this - will try to get used to live without this and convert them to usual keys
-    [20] =  ACTION_LAYER_MOMENTARY(2),                      // FN20 - momentary Layer2, to use with Numpad keys
-// or
-//  [20] =  ACTION_FUNCTION_TAP(CUSTOM_KEY),                // FN20 - use custom key, with tapping support
+    // [20] =  ACTION_LAYER_MOMENTARY(2),                      // FN20 - momentary Layer2, to use with Numpad keys
+    // or
+    // [20] =  ACTION_FUNCTION_TAP(CUSTOM_KEY),                // FN20 - use custom key, with tapping support
 
     [21] =  ACTION_FUNCTION_TAP(L_CTRL_ALT_ENT),            // FN21 - momentary Layer5+CTRL+ALT on Enter, to use with F* keys on top row
     [22] =  ACTION_FUNCTION_TAP(R_CTRL_ALT_ENT),            // FN22 - momentary Layer6+CTRL+ALT on Enter, to use with F* keys on top row + utils
 
+    [20] =  ACTION_LAYER_TAP_KEY(7, KC_5),                  // FN20 - momentary Layer7 on '5' , to use with F* keys (F1-F24)
     [23] =  ACTION_LAYER_TAP_KEY(7, KC_6),                  // FN23 - momentary Layer7 on '6' , to use with F* keys (F1-F24)
 
     // unused:[24] =  ACTION_LAYER_TAP_KEY(4, KC_Z),                  // FN24 = momentary Layer4 on Z key, to use with unconvenient keys
@@ -284,7 +285,7 @@ static const uint16_t PROGMEM fn_actions[] = {
 
     [24] =  ACTION_FUNCTION_TAP(R_CTRL_ALT_Y),              // FN24 = momentary Layer6+CTRL+ALT on Y, to use with F* keys on top row + utils
     [25] =  ACTION_MODS_TAP_KEY(MOD_LGUI|MOD_LALT, KC_H),   // FN25 = RGui+LAlt with tap H
-    [26] =  ACTION_MODS_TAP_KEY(MOD_LGUI,          KC_N),   // FN26 = RGui      with tap N
+    [26] =  ACTION_MODS_TAP_KEY(MOD_RGUI,          KC_N),   // FN26 = RGui      with tap N
 };
 
 static const uint16_t PROGMEM fn_actions_4[] = {
