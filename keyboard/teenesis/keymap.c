@@ -64,11 +64,11 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KEYMAP(  // layer 0 : default
         ESC ,1   ,2   ,3   ,4   ,FN20,               FN23,7   ,8   ,9   ,0   ,EQL ,
         FN2 ,Q   ,W   ,E   ,R   ,FN1 ,               FN24,U   ,I   ,O   ,P   ,LBRC,
-        FN11,FN28,FN29,FN30,FN31,FN3 ,               FN25,J   ,K   ,L   ,SCLN,FN15,
-        FN12,Z   ,X   ,C   ,FN27,FN4 ,               FN26,M   ,COMM,DOT ,SLSH,FN16,
-        FN21,SPC ,CAPS,FN13,FN14,                         LEFT,UP  ,DOWN,RGHT,FN22,
-                                 FN17,FN19,     PGUP,RGUI,
-                                      NO  ,     PGDN,
+        FN11,FN28,FN29,FN30,FN31,G   ,               H   ,J   ,K   ,L   ,SCLN,FN15,
+        FN12,Z   ,X   ,C   ,FN27,B   ,               N   ,M   ,COMM,DOT ,SLSH,FN16,
+        FN21,SPC ,CAPS,FN13,NO  ,                         LEFT,UP  ,DOWN,RGHT,FN22,
+                                 FN17,FN19,     FN3 ,FN25,
+                                      FN14,     FN4 ,
                             FN5 ,FN6 ,FN7 ,     FN8 ,FN9 ,FN10
     ),
 
@@ -240,7 +240,7 @@ static const uint16_t PROGMEM fn_actions[] = {
     [5]  =  ACTION_MODS_TAP_KEY(MOD_LCTL, KC_BSPC),         // FN5  = LShift with tap BackSpace
     [6]  =  ACTION_MODS_TAP_KEY(MOD_LSFT, KC_DEL),          // FN6  = LCtrl  with tap Delete
     [7]  =  ACTION_MODS_TAP_KEY(MOD_LALT, KC_ESC),          // FN7  = LAlt   with tap Escape
-    [8]  =  ACTION_MODS_TAP_KEY(MOD_RGUI, KC_INS),          // FN8  = RGui   with tap Ins
+    [8]  =  ACTION_MODS_TAP_KEY(MOD_RALT, KC_INS),          // FN8  = RAlt   with tap Ins
     [9]  =  ACTION_MODS_TAP_KEY(MOD_RSFT, KC_ENT),          // FN9  = RShift with tap Enter
     [10] =  ACTION_MODS_TAP_KEY(MOD_RCTL, KC_SPC),          // FN10 = RCtrl  with tap Space
 
@@ -278,12 +278,18 @@ static const uint16_t PROGMEM fn_actions[] = {
 
     // new, on kinesis only
     // unused are: 1, 3, 4, 24, 25, 26
-    [1]  =  ACTION_FUNCTION_TAP(L_CTRL_ALT_T),              // FN1  = momentary Layer5+CTRL+ALT on T, to use with F* keys on top row
-    [3]  =  ACTION_MODS_TAP_KEY(MOD_LGUI|MOD_LALT, KC_G),   // FN3  = LGui+LAlt with tap G
-    [4]  =  ACTION_MODS_TAP_KEY(MOD_LGUI,          KC_B),   // FN4  = LGui      with tap B
+    // [1]  =  ACTION_FUNCTION_TAP(L_CTRL_ALT_T),              // FN1  = momentary Layer5+CTRL+ALT on T, to use with F* keys on top row
+    // [3]  =  ACTION_MODS_TAP_KEY(MOD_LGUI|MOD_LALT, KC_G),   // FN3  = LGui+LAlt with tap G
+    // [4]  =  ACTION_MODS_TAP_KEY(MOD_LGUI,          KC_B),   // FN4  = LGui      with tap B
+    // [24] =  ACTION_FUNCTION_TAP(R_CTRL_ALT_Y),              // FN24 = momentary Layer6+CTRL+ALT on Y, to use with F* keys on top row + utils
+    // [25] =  ACTION_MODS_TAP_KEY(MOD_LGUI|MOD_LALT, KC_H),   // FN25 = RGui+LAlt with tap H
+    // [26] =  ACTION_MODS_TAP_KEY(MOD_RGUI,          KC_N),   // FN26 = RGui      with tap N
 
+    [1]  =  ACTION_FUNCTION_TAP(L_CTRL_ALT_T),              // FN1  = momentary Layer5+CTRL+ALT on T, to use with F* keys on top row
     [24] =  ACTION_FUNCTION_TAP(R_CTRL_ALT_Y),              // FN24 = momentary Layer6+CTRL+ALT on Y, to use with F* keys on top row + utils
-    [25] =  ACTION_MODS_TAP_KEY(MOD_LGUI|MOD_LALT, KC_H),   // FN25 = RGui+LAlt with tap H
+    [3]  =  ACTION_MODS_TAP_KEY(MOD_LCTL, KC_PGUP),         // FN3  = LShift with tap PgUp
+    [4]  =  ACTION_MODS_TAP_KEY(MOD_RGUI, KC_PGDN),         // FN4  = RGui   with tap PgDn
+    [25] =  ACTION_MODS_TAP_KEY(MOD_LGUI|MOD_LALT, KC_ESC), // FN25 = RGui+LAlt with tap Esc
     [26] =  ACTION_MODS_TAP_KEY(MOD_RGUI,          KC_N),   // FN26 = RGui      with tap N
 };
 
