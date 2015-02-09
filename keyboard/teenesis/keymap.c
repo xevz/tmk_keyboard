@@ -75,12 +75,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KEYMAP(  // layer 0 : default
     //       ;    !    #    {    }                   [    ]    *    (    )    =
-        ESC ,1   ,2   ,3   ,4   ,5   ,               6   ,7   ,8   ,9   ,0   ,EQL ,
+        ESC ,1   ,2   ,3   ,4   ,FN20,               FN21,7   ,8   ,9   ,0   ,EQL ,
         FN10,Q   ,W   ,E   ,R   ,T   ,               Y   ,U   ,I   ,O   ,P   ,LBRC,
         FN11,FN13,FN14,FN15,FN16,G   ,               H   ,J   ,K   ,L   ,SCLN,FN12,
         GRV ,Z   ,X   ,C   ,FN17,B   ,               N   ,M   ,COMM,DOT ,SLSH,RBRC,
              CAPS,NO  ,HOME,END ,                         LEFT,UP  ,DOWN,RGHT,
-                                 NO  ,FN31,     FN0 ,PGUP,
+                                 FN18,FN31,     FN0 ,FN19,
                                       FN23,     FN24,
                             FN25,FN26,FN27,     FN28,FN29,FN30
     ),
@@ -169,22 +169,32 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                             TRNS,TRNS,TRNS,     TRNS,TRNS,TRNS
     ),
 
-    KEYMAP(  // Layer8: Ctrl+Alt with F-keys + utils(Teensy, Workman-layer switch)
-        NO  ,F1  ,F2  ,F3  ,F4  ,F5  ,               F6  ,F7  ,F8  ,F9  ,F10 ,NO  ,
-        NO  ,P1  ,P2  ,P3  ,P4  ,P5  ,               NO  ,P7  ,P8  ,P9  ,P0  ,NO  ,
-        NO  ,NO  ,NO  ,E   ,NO  ,NO  ,               NO  ,U   ,NO  ,NO  ,NO  ,NO  ,
-        NO  ,NO  ,NO  ,NO  ,NO  ,NO  ,               NO  ,NO  ,NO  ,NO  ,NO  ,NO  ,
-             NO  ,FN31,NO  ,NO  ,                         NO  ,NO  ,NO  ,NO  ,
+    KEYMAP(  // Layer8: Ctrl+Alt with F-keys
+        TRNS,F1  ,F2  ,F3  ,F4  ,F5  ,               F6  ,F7  ,F8  ,F9  ,F10 ,TRNS,
+        TRNS,P1  ,P2  ,P3  ,P4  ,P5  ,               P6  ,P7  ,P8  ,P9  ,P0  ,TRNS,
+        TRNS,TRNS,TRNS,E   ,TRNS,TRNS,               TRNS,U   ,TRNS,TRNS,TRNS,TRNS,
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,               TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
+             TRNS,FN31,TRNS,TRNS,                         TRNS,TRNS,TRNS,TRNS,
                                  TRNS,TRNS,     TRNS,TRNS,
                                       TRNS,     TRNS,
                             TRNS,TRNS,TRNS,     TRNS,TRNS,TRNS
     ),
 
-
-
+    KEYMAP(  // Layer9: Macros and F-keys + utils(Teensy, Workman-layer switch)
+        FN1 ,NO  ,NO  ,NO  ,NO  ,TRNS,               TRNS,NO  ,NO  ,NO  ,NO  ,FN0 ,
+        FN2 ,F13 ,F14 ,F15 ,F16 ,NO  ,               NO  ,F1  ,F2  ,F3  ,F4  ,TRNS,
+        TRNS,F17 ,F18 ,F19 ,F20 ,NO  ,               NO  ,F5  ,F6  ,F7  ,F8  ,TRNS,
+        TRNS,F21 ,F22 ,F23 ,F24 ,NO  ,               NO  ,F9  ,F10 ,F11 ,F12 ,TRNS,
+             TRNS,FN31,TRNS,TRNS,                         TRNS,TRNS,TRNS,TRNS,
+                                 TRNS,TRNS,     TRNS,SLEP,
+                                      TRNS,     TRNS,
+                            TRNS,TRNS,TRNS,     TRNS,TRNS,TRNS
+    ),
 
 
 /*
+    // templates to copy from
+
     KEYMAP(  // LayerN: fully transparent
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,               TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,               TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
@@ -197,60 +207,6 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
 
-
-
-
-    KEYMAP(  // Layer5: F-keys instead of numbers
-        TRNS,F1  ,F2  ,F3  ,F4  ,F5  ,               F6  ,F7  ,F8  ,F9  ,F10 ,TRNS,
-        TRNS,P1  ,P2  ,P3  ,P4  ,TRNS,               P6  ,P7  ,P8  ,P9  ,P0  ,TRNS,
-        TRNS,TRNS,TRNS,E   ,TRNS,TRNS,               TRNS,U   ,TRNS,TRNS,TRNS,TRNS,
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,               TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
-        TRNS,TRNS,TRNS,TRNS,TRNS,                         TRNS,TRNS,TRNS,TRNS,TRNS,
-                                 TRNS,TRNS,     TRNS,TRNS,
-                                      TRNS,     TRNS,
-                            TRNS,TRNS,TRNS,     TRNS,TRNS,TRNS
-    ),
-
-    //
-    // rarely used
-    //
-
-    KEYMAP(  // Layer7: F-keys only
-        FN1 ,NO  ,NO  ,NO  ,NO  ,TRNS,               TRNS,NO  ,NO  ,NO  ,NO  ,FN0 ,
-        FN2 ,F13 ,F14 ,F15 ,F16 ,TRNS,               TRNS,F1  ,F2  ,F3  ,F4  ,TRNS,
-        TRNS,F17 ,F18 ,F19 ,F20 ,TRNS,               TRNS,F5  ,F6  ,F7  ,F8  ,TRNS,
-        TRNS,F21 ,F22 ,F23 ,F24 ,TRNS,               TRNS,F9  ,F10 ,F11 ,F12 ,TRNS,
-        TRNS,TRNS,TRNS,TRNS,TRNS,                         TRNS,TRNS,TRNS,TRNS,TRNS,
-                                 SLEP,TRNS,     TRNS,SLEP,
-                                      TRNS,     TRNS,
-                            TRNS,TRNS,TRNS,     TRNS,TRNS,TRNS
-    ),
-
-*/
-
-/*
-    // templates to copy from
-
-    KEYMAP(  // LayerN: transparent on edges + hard-defined thumb keys, all others are empty
-        TRNS,NO  ,NO  ,NO  ,NO  ,NO  ,               NO  ,NO  ,NO  ,NO  ,NO  ,TRNS,
-        TRNS,NO  ,NO  ,NO  ,NO  ,NO  ,               NO  ,NO  ,NO  ,NO  ,NO  ,TRNS,
-        TRNS,NO  ,NO  ,NO  ,NO  ,NO  ,               NO  ,NO  ,NO  ,NO  ,NO  ,TRNS,
-        TRNS,NO  ,NO  ,NO  ,NO  ,NO  ,               NO  ,NO  ,NO  ,NO  ,NO  ,TRNS,
-        TRNS,TRNS,TRNS,LALT,LGUI,                         RGUI,RALT,TRNS,TRNS,TRNS,
-                                 TRNS,TRNS,     TRNS,TRNS,
-                                      TRNS,     TRNS,
-                            LCTL,LSFT,TRNS,     TRNS,RSFT,RCTL
-    ),
-    KEYMAP(  // LayerN: fully transparent
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,               TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,               TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,               TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,               TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
-        TRNS,TRNS,TRNS,TRNS,TRNS,                         TRNS,TRNS,TRNS,TRNS,TRNS,
-                                 TRNS,TRNS,     TRNS,TRNS,
-                                      TRNS,     TRNS,
-                            TRNS,TRNS,TRNS,     TRNS,TRNS,TRNS
-    ),
 */
 
 };
@@ -259,10 +215,8 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 enum function_id {
     TEENSY_KEY,
     CUSTOM_KEY,
-    L_CTRL_ALT_ENT,
-    R_CTRL_ALT_ENT,
-    L_CTRL_ALT_T,
-    R_CTRL_ALT_Y,
+    L_CTRL_ALT_NO,
+    R_CTRL_ALT_PGUP,
 };
 
 enum macro_id {
@@ -276,7 +230,7 @@ enum macro_id {
  * Fn action definition
  */
 static const uint16_t PROGMEM fn_actions[] = {
-    [ 0] =  ACTION_FUNCTION(TEENSY_KEY),                    // FN0  - Teensy key
+    [ 0] =  ACTION_FUNCTION(TEENSY_KEY),                    // FN0  = Teensy key
 
 
     [10] =  ACTION_MODS_KEY(MOD_LSFT, KC_MINS),             // FN10 = Shifted Minus -- \ in Workman
@@ -287,38 +241,42 @@ static const uint16_t PROGMEM fn_actions[] = {
     [15] =  ACTION_LAYER_TAP_KEY(5, KC_D),                  // FN15 = momentary Layer5 on D key
     [16] =  ACTION_LAYER_TAP_KEY(6, KC_F),                  // FN16 = momentary Layer6 on F key
     [17] =  ACTION_LAYER_TAP_KEY(7, KC_V),                  // FN17 = momentary Layer7 on V key
+    [18] =  ACTION_FUNCTION_TAP(L_CTRL_ALT_NO),             // FN18 = momentary Layer8+CTRL+ALT on NO
+    [19] =  ACTION_FUNCTION_TAP(R_CTRL_ALT_PGUP),           // FN19 = momentary Layer8+CTRL+ALT on PGUP
+    [20] =  ACTION_LAYER_TAP_KEY(9, KC_5),                  // FN20 = momentary Layer9 on 5 key
+    [21] =  ACTION_LAYER_TAP_KEY(9, KC_6),                  // FN21 = momentary Layer9 on 6 key
 
-    [23] =  ACTION_MODS_TAP_KEY(MOD_LGUI, KC_NO),           // FN23 = LAlt   with tap Escape
-    [24] =  ACTION_MODS_TAP_KEY(MOD_RGUI, KC_PGDN),         // FN24 = RAlt   with tap PgDn
+    [23] =  ACTION_MODS_TAP_KEY(MOD_LALT, KC_NO),           // FN23 = LAlt   with tap Escape
+    [24] =  ACTION_MODS_TAP_KEY(MOD_RALT, KC_PGDN),         // FN24 = RAlt   with tap PgDn
     [25] =  ACTION_MODS_TAP_KEY(MOD_LCTL, KC_BSPC),         // FN25 = LShift with tap BackSpace
     [26] =  ACTION_MODS_TAP_KEY(MOD_LSFT, KC_DEL),          // FN26 = LCtrl  with tap Delete
-    [27] =  ACTION_MODS_TAP_KEY(MOD_LALT, KC_ESC),          // FN27 = LAlt   with tap Escape
-    [28] =  ACTION_MODS_TAP_KEY(MOD_RALT, KC_INS),          // FN28 = RAlt   with tap Ins
+    [27] =  ACTION_MODS_TAP_KEY(MOD_LGUI, KC_ESC),          // FN27 = LAlt   with tap Escape
+    [28] =  ACTION_MODS_TAP_KEY(MOD_RGUI, KC_INS),          // FN28 = RAlt   with tap Ins
     [29] =  ACTION_MODS_TAP_KEY(MOD_RSFT, KC_ENT),          // FN29 = RShift with tap Enter
     [30] =  ACTION_MODS_TAP_KEY(MOD_RCTL, KC_SPC),          // FN30 = RCtrl  with tap Space
 
-    [31] =  ACTION_LAYER_SET(0, ON_BOTH),                   // FN31 - set Layer0
+    [31] =  ACTION_LAYER_SET(0, ON_BOTH),                   // FN31 = set Layer0
 };
 
 static const uint16_t PROGMEM fn_actions_3[] = {
-    [1]  =  ACTION_MODS_KEY(MOD_LSFT, KC_BSLS),             // FN1  = Shifted BackSlash // " in Workman
-    [2]  =  ACTION_MODS_KEY(MOD_LSFT, KC_MINS),             // FN2  = Shifted Minus     // \ in Workman
-    [3]  =  ACTION_MODS_KEY(MOD_LSFT, KC_COMM),             // FN3  = Shifted comma     // < in Workman
-    [4]  =  ACTION_MODS_KEY(MOD_LSFT, KC_DOT),              // FN4  = Shifted dot       // > in Workman
-    [5]  =  ACTION_MODS_KEY(MOD_LSFT, KC_SLSH),             // FN5  = Shifted slash     // ? in Workman
+    [ 1] =  ACTION_MODS_KEY(MOD_LSFT, KC_BSLS),             // FN1  = Shifted BackSlash // " in Workman
+    [ 2] =  ACTION_MODS_KEY(MOD_LSFT, KC_MINS),             // FN2  = Shifted Minus     // \ in Workman
+    [ 3] =  ACTION_MODS_KEY(MOD_LSFT, KC_COMM),             // FN3  = Shifted comma     // < in Workman
+    [ 4] =  ACTION_MODS_KEY(MOD_LSFT, KC_DOT),              // FN4  = Shifted dot       // > in Workman
+    [ 5] =  ACTION_MODS_KEY(MOD_LSFT, KC_SLSH),             // FN5  = Shifted slash     // ? in Workman
 };
 
 static const uint16_t PROGMEM fn_actions_7[] = {
-    [0]  =  ACTION_MODS_KEY(MOD_LCTL,          KC_P0),      // FN0  = Ctrl+0
-    [1]  =  ACTION_MODS_KEY(MOD_LALT,          KC_P1),      // FN1  = Alt+1
-    [2]  =  ACTION_MODS_KEY(MOD_LALT,          KC_P2),      // FN2  = Alt+2
-    [3]  =  ACTION_MODS_KEY(MOD_LALT,          KC_P3),      // FN3  = Alt+3
-    [4]  =  ACTION_MODS_KEY(MOD_LALT,          KC_P4),      // FN4  = Alt+4
-    [5]  =  ACTION_MODS_KEY(MOD_LALT,          KC_P5),      // FN5  = Alt+5
-    [6]  =  ACTION_MODS_KEY(MOD_LALT,          KC_P6),      // FN6  = Alt+6
-    [7]  =  ACTION_MODS_KEY(MOD_LALT,          KC_P7),      // FN7  = Alt+7
-    [8]  =  ACTION_MODS_KEY(MOD_LALT,          KC_P8),      // FN8  = Alt+8
-    [9]  =  ACTION_MODS_KEY(MOD_LALT,          KC_P9),      // FN9  = Alt+9
+    [ 0] =  ACTION_MODS_KEY(MOD_LCTL,          KC_P0),      // FN0  = Ctrl+0
+    [ 1] =  ACTION_MODS_KEY(MOD_LALT,          KC_P1),      // FN1  = Alt+1
+    [ 2] =  ACTION_MODS_KEY(MOD_LALT,          KC_P2),      // FN2  = Alt+2
+    [ 3] =  ACTION_MODS_KEY(MOD_LALT,          KC_P3),      // FN3  = Alt+3
+    [ 4] =  ACTION_MODS_KEY(MOD_LALT,          KC_P4),      // FN4  = Alt+4
+    [ 5] =  ACTION_MODS_KEY(MOD_LALT,          KC_P5),      // FN5  = Alt+5
+    [ 6] =  ACTION_MODS_KEY(MOD_LALT,          KC_P6),      // FN6  = Alt+6
+    [ 7] =  ACTION_MODS_KEY(MOD_LALT,          KC_P7),      // FN7  = Alt+7
+    [ 8] =  ACTION_MODS_KEY(MOD_LALT,          KC_P8),      // FN8  = Alt+8
+    [ 9] =  ACTION_MODS_KEY(MOD_LALT,          KC_P9),      // FN9  = Alt+9
     [10] =  ACTION_MODS_KEY(MOD_LCTL|MOD_LSFT, KC_TAB),     // FN10 = Ctrl+Shift+Tab
     [11] =  ACTION_MODS_KEY(MOD_LCTL,          KC_TAB),     // FN11 = Ctrl+Tab
     [12] =  ACTION_MODS_KEY(MOD_LCTL|MOD_LSFT, KC_PGUP),    // FN12 = Ctrl+Shift+PgUp
@@ -327,23 +285,20 @@ static const uint16_t PROGMEM fn_actions_7[] = {
     [15] =  ACTION_MODS_KEY(MOD_LCTL,          KC_PPLS),    // FN15 = Ctrl+Pad Plus
 };
 
-static const uint16_t PROGMEM fn_actions_10[] = {
-    [0]  =  ACTION_FUNCTION(TEENSY_KEY),                    // FN0  = Teensy key
-    [1]  =  ACTION_LAYER_SET(1, ON_BOTH),                   // FN1  = set Layer1
+static const uint16_t PROGMEM fn_actions_9[] = {
+    [ 0] =  ACTION_FUNCTION(TEENSY_KEY),                    // FN0  = Teensy key
+    [ 1] =  ACTION_MACRO(XMONAD_RESET),                     // FN1  = xmonad-reanimator
+    [ 2] =  ACTION_MACRO(PASSWORD1),                        // FN2  = default password
+    [ 3] =  ACTION_MACRO(PASSWORD2),                        // FN3  = other password
+    [ 4] =  ACTION_MACRO(PASSWORD3),                        // FN4  = mega password
 };
 
-static const uint16_t PROGMEM fn_actions_11[] = {
-    [0]  =  ACTION_FUNCTION(TEENSY_KEY),                    // FN0  = Teensy key
-    [1]  =  ACTION_MACRO(XMONAD_RESET),                     // FN1  = xmonad-reanimator
-    [2]  =  ACTION_MACRO(PASSWORD1),                        // FN2  = default password
-    [3]  =  ACTION_MACRO(PASSWORD1),                        // FN3  = other password
-    [4]  =  ACTION_MACRO(PASSWORD1),                        // FN4  = mega password
-};
 
 #define KEYMAPS_SIZE        (sizeof(keymaps)      / sizeof(keymaps[0]))
 #define FN_ACTIONS_SIZE     (sizeof(fn_actions)   / sizeof(fn_actions[0]))
 #define FN_ACTIONS_3_SIZE   (sizeof(fn_actions_3) / sizeof(fn_actions_3[0]))
 #define FN_ACTIONS_7_SIZE   (sizeof(fn_actions_7) / sizeof(fn_actions_7[0]))
+#define FN_ACTIONS_9_SIZE   (sizeof(fn_actions_9) / sizeof(fn_actions_9[0]))
 
 /*
  * translates Fn keycode to action
@@ -360,6 +315,8 @@ action_t keymap_fn_to_action(uint8_t keycode)
         action.code = pgm_read_word(&fn_actions_3[FN_INDEX(keycode)]);
     } else if (layer == 7 && FN_INDEX(keycode) < FN_ACTIONS_7_SIZE) {
         action.code = pgm_read_word(&fn_actions_7[FN_INDEX(keycode)]);
+    } else if (layer == 9 && FN_INDEX(keycode) < FN_ACTIONS_9_SIZE) {
+        action.code = pgm_read_word(&fn_actions_9[FN_INDEX(keycode)]);
     } else if (action.code == ACTION_NO && FN_INDEX(keycode) < FN_ACTIONS_SIZE) {
         // by default, use fn_actions from default layer 0
         // this is needed to get mapping for same key, that was used switch to some layer,
@@ -384,10 +341,8 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
         print("not supported.\n");
     }
 
-    if (   id == L_CTRL_ALT_ENT
-        || id == R_CTRL_ALT_ENT
-        || id == L_CTRL_ALT_T
-        || id == R_CTRL_ALT_Y
+    if (   id == L_CTRL_ALT_NO
+        || id == R_CTRL_ALT_PGUP
     ) {
         // debug
         /*
@@ -401,12 +356,12 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
             uint8_t weak_mods = 0;
             uint8_t layer = 0;
 
-            if (id == L_CTRL_ALT_ENT || id == L_CTRL_ALT_T) {
+            if (id == L_CTRL_ALT_NO) {
                 weak_mods = MOD_BIT(KC_LCTL) | MOD_BIT(KC_LALT);
-                layer     = 5;
-            } else if (id == R_CTRL_ALT_ENT || id == R_CTRL_ALT_Y) {
+                layer     = 8;
+            } else if (id == R_CTRL_ALT_PGUP) {
                 weak_mods = MOD_BIT(KC_RCTL) | MOD_BIT(KC_RALT);
-                layer     = 6;
+                layer     = 8;
             } else {
                 // do nothing - this should never happen
             }
@@ -419,23 +374,17 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
                 layer_off(layer);
             }
         } else {
-            if (id == L_CTRL_ALT_ENT || id == R_CTRL_ALT_ENT) {
+            if (id == L_CTRL_ALT_NO) {
                 if (record->event.pressed) {
-                    add_key(KC_ENT);
+                    add_key(KC_NO);
                 } else {
-                    del_key(KC_ENT);
+                    del_key(KC_NO);
                 }
-            } else if (id == L_CTRL_ALT_T) {
+            } else if (id == R_CTRL_ALT_PGUP) {
                 if (record->event.pressed) {
-                    add_key(KC_T);
+                    add_key(KC_PGUP);
                 } else {
-                    del_key(KC_T);
-                }
-            } else if (id == R_CTRL_ALT_Y) {
-                if (record->event.pressed) {
-                    add_key(KC_Y);
-                } else {
-                    del_key(KC_Y);
+                    del_key(KC_PGUP);
                 }
             } else {
                 // do nothing - this should never happen
