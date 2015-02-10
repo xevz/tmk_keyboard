@@ -250,8 +250,8 @@ static const uint16_t PROGMEM fn_actions[] = {
     [24] =  ACTION_MODS_TAP_KEY(MOD_RALT, KC_PGDN),         // FN24 = RAlt   with tap PgDn
     [25] =  ACTION_MODS_TAP_KEY(MOD_LCTL, KC_BSPC),         // FN25 = LShift with tap BackSpace
     [26] =  ACTION_MODS_TAP_KEY(MOD_LSFT, KC_DEL),          // FN26 = LCtrl  with tap Delete
-    [27] =  ACTION_MODS_TAP_KEY(MOD_LGUI, KC_ESC),          // FN27 = LAlt   with tap Escape
-    [28] =  ACTION_MODS_TAP_KEY(MOD_RGUI, KC_INS),          // FN28 = RAlt   with tap Ins
+    [27] =  ACTION_MODS_TAP_KEY(MOD_LGUI, KC_ESC),          // FN27 = LGui   with tap Escape
+    [28] =  ACTION_MODS_TAP_KEY(MOD_RGUI, KC_INS),          // FN28 = RGui   with tap Ins
     [29] =  ACTION_MODS_TAP_KEY(MOD_RSFT, KC_ENT),          // FN29 = RShift with tap Enter
     [30] =  ACTION_MODS_TAP_KEY(MOD_RCTL, KC_SPC),          // FN30 = RCtrl  with tap Space
 
