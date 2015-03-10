@@ -79,7 +79,7 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         FN10,Q   ,W   ,E   ,R   ,T   ,               Y   ,U   ,I   ,O   ,P   ,LBRC,
         FN11,FN13,FN14,FN15,FN16,G   ,               H   ,J   ,K   ,L   ,SCLN,FN12,
         GRV ,Z   ,X   ,C   ,FN17,B   ,               N   ,M   ,COMM,DOT ,SLSH,RBRC,
-             CAPS,NO  ,HOME,END ,                         LEFT,UP  ,DOWN,RGHT,
+             CAPS,FN1 ,HOME,END ,                         LEFT,UP  ,DOWN,RGHT,
                                  FN18,FN31,     FN0 ,FN19,
                                       FN23,     FN24,
                             FN25,FN26,FN27,     FN28,FN29,FN30
@@ -231,6 +231,7 @@ enum macro_id {
  */
 static const uint16_t PROGMEM fn_actions[] = {
     [ 0] =  ACTION_FUNCTION(TEENSY_KEY),                    // FN0  = Teensy key
+    [ 1] =  ACTION_MODS_KEY(MOD_LSFT, KC_SLCK),             // FN1  = Shifted ScrollLock
 
 
     [10] =  ACTION_MODS_KEY(MOD_LSFT, KC_MINS),             // FN10 = Shifted Minus -- \ in Workman
