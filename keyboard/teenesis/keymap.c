@@ -110,11 +110,11 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KEYMAP(  // Layer3: unconvenient keys on right hand
                                                     /* in Workman right hand will be:
                                                             { } ( ) +
-                                                          ^ ! ? ( ) =
+                                                          ? ^ % ( ) =
                                                           ' ! $ " ; \
                                                           # [ < > ] \         */
         FN31,NO  ,NO  ,NO  ,NO  ,NO  ,               NO  ,4   ,5   ,9   ,0   ,PPLS,
-        NO  ,NO  ,NO  ,NO  ,NO  ,NO  ,               MINS,2   ,FN5 ,9   ,0   ,EQL ,
+        NO  ,NO  ,NO  ,NO  ,NO  ,NO  ,               FN5, MINS,FN6, 9   ,0   ,EQL ,
         NO  ,TRNS,NO  ,NO  ,NO  ,NO  ,               BSLS,2   ,P   ,FN1 ,1   ,FN2 ,
         NO  ,NO  ,NO  ,NO  ,NO  ,NO  ,               3   ,6   ,FN3 ,FN4 ,7   ,FN2 ,
              NO  ,FN31,NO  ,NO  ,                         NO  ,NO  ,NO  ,NO  ,
@@ -265,6 +265,7 @@ static const uint16_t PROGMEM fn_actions_3[] = {
     [ 3] =  ACTION_MODS_KEY(MOD_LSFT, KC_COMM),             // FN3  = Shifted comma     // < in Workman
     [ 4] =  ACTION_MODS_KEY(MOD_LSFT, KC_DOT),              // FN4  = Shifted dot       // > in Workman
     [ 5] =  ACTION_MODS_KEY(MOD_LSFT, KC_SLSH),             // FN5  = Shifted slash     // ? in Workman
+    [ 6] =  ACTION_MODS_KEY(MOD_LSFT, KC_LBRC),             // FN6  = Shifted [         // % in Workman
 };
 
 static const uint16_t PROGMEM fn_actions_7[] = {
