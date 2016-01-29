@@ -180,16 +180,63 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                             TRNS,TRNS,TRNS,     TRNS,TRNS,TRNS
     ),
 
-    KEYMAP(  // Layer9: Macros and F-keys + utils(Teensy, Workman-layer switch)
-        FN1 ,NO  ,NO  ,NO  ,NO  ,TRNS,               TRNS,NO  ,NO  ,NO  ,NO  ,FN0 ,
-        FN2 ,F13 ,F14 ,F15 ,F16 ,NO  ,               NO  ,F1  ,F2  ,F3  ,F4  ,TRNS,
-        TRNS,F17 ,F18 ,F19 ,F20 ,NO  ,               NO  ,F5  ,F6  ,F7  ,F8  ,TRNS,
-        TRNS,F21 ,F22 ,F23 ,F24 ,NO  ,               NO  ,F9  ,F10 ,F11 ,F12 ,TRNS,
+    KEYMAP(  // Layer9 : Autocad (QWERTY + immediate Ctrl/Shift/Alt/Win)
+        ESC ,TRNS,TRNS,FN5 ,TRNS,TRNS,               TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
+        ESC ,Q   ,W   ,E   ,R   ,T   ,               Y   ,U   ,I   ,O   ,P   ,LBRC,
+        TAB ,A   ,S   ,D   ,F   ,G   ,               H   ,J   ,K   ,L   ,SCLN,TRNS,
+        ENT ,Z   ,X   ,C   ,V   ,B   ,               N   ,M   ,COMM,DOT ,SLSH,RBRC,
+             TRNS,TRNS,SPC ,LALT,                         TRNS,TRNS,TRNS,TRNS,
+                                 LGUI,TRNS,     TRNS,TRNS,
+                                      ENT ,     TRNS,
+                            LCTL,LSFT,ESC ,     TRNS,TRNS,TRNS
+    ),
+
+
+    KEYMAP(  // Layer10: fully transparent
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,               TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,               TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,               TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,               TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
+             TRNS,TRNS,TRNS,TRNS,                         TRNS,TRNS,TRNS,TRNS,
+                                 TRNS,TRNS,     TRNS,TRNS,
+                                      TRNS,     TRNS,
+                            TRNS,TRNS,TRNS,     TRNS,TRNS,TRNS
+    ),
+
+    KEYMAP(  // Layer11: fully transparent
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,               TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,               TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,               TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,               TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
+             TRNS,TRNS,TRNS,TRNS,                         TRNS,TRNS,TRNS,TRNS,
+                                 TRNS,TRNS,     TRNS,TRNS,
+                                      TRNS,     TRNS,
+                            TRNS,TRNS,TRNS,     TRNS,TRNS,TRNS
+    ),
+
+    KEYMAP(  // Layer12: fully transparent
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,               TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,               TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,               TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,               TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
+             TRNS,TRNS,TRNS,TRNS,                         TRNS,TRNS,TRNS,TRNS,
+                                 TRNS,TRNS,     TRNS,TRNS,
+                                      TRNS,     TRNS,
+                            TRNS,TRNS,TRNS,     TRNS,TRNS,TRNS
+    ),
+
+    KEYMAP(  // Layer13: Macros and F-keys + utils(Teensy, layers selector)
+        FN1 ,NO  ,NO  ,FN5 ,NO  ,TRNS,               TRNS,NO  ,NO  ,NO  ,NO  ,FN0 ,
+        FN2 ,F1  ,F2  ,F3  ,F4  ,NO  ,               NO  ,F13 ,F14 ,F15 ,F16 ,TRNS,
+        TRNS,F5  ,F6  ,F7  ,F8  ,NO  ,               NO  ,F17 ,F18 ,F19 ,F20 ,TRNS,
+        TRNS,F9  ,F10 ,F11 ,F12 ,NO  ,               NO  ,F21 ,F22 ,F23 ,F24 ,TRNS,
              TRNS,FN31,TRNS,TRNS,                         TRNS,TRNS,TRNS,TRNS,
                                  TRNS,TRNS,     TRNS,SLEP,
                                       TRNS,     TRNS,
                             TRNS,TRNS,TRNS,     TRNS,TRNS,TRNS
     ),
+
+
 
 
 /*
@@ -244,8 +291,8 @@ static const uint16_t PROGMEM fn_actions[] = {
     [17] =  ACTION_LAYER_TAP_KEY(7, KC_V),                  // FN17 = momentary Layer7 on V key
     [18] =  ACTION_FUNCTION_TAP(L_CTRL_ALT_NO),             // FN18 = momentary Layer8+CTRL+ALT on NO
     [19] =  ACTION_FUNCTION_TAP(R_CTRL_ALT_PGUP),           // FN19 = momentary Layer8+CTRL+ALT on PGUP
-    [20] =  ACTION_LAYER_TAP_KEY(9, KC_5),                  // FN20 = momentary Layer9 on 5 key
-    [21] =  ACTION_LAYER_TAP_KEY(9, KC_6),                  // FN21 = momentary Layer9 on 6 key
+    [20] =  ACTION_LAYER_TAP_KEY(13, KC_5),                 // FN20 = momentary Layer13 on 5 key
+    [21] =  ACTION_LAYER_TAP_KEY(13, KC_6),                 // FN21 = momentary Layer13 on 6 key
 
     [23] =  ACTION_MODS_TAP_KEY(MOD_LALT, KC_NO),           // FN23 = LAlt   with tap Escape
     [24] =  ACTION_MODS_TAP_KEY(MOD_RALT, KC_PGDN),         // FN24 = RAlt   with tap PgDn
@@ -288,19 +335,25 @@ static const uint16_t PROGMEM fn_actions_7[] = {
 };
 
 static const uint16_t PROGMEM fn_actions_9[] = {
+    [ 5] =  ACTION_LAYER_SET(9, ON_BOTH),                   // FN5  = set Layer9
+};
+
+static const uint16_t PROGMEM fn_actions_13[] = {
     [ 0] =  ACTION_FUNCTION(TEENSY_KEY),                    // FN0  = Teensy key
     [ 1] =  ACTION_MACRO(XMONAD_RESET),                     // FN1  = xmonad-reanimator
     [ 2] =  ACTION_MACRO(PASSWORD1),                        // FN2  = default password
     [ 3] =  ACTION_MACRO(PASSWORD2),                        // FN3  = other password
     [ 4] =  ACTION_MACRO(PASSWORD3),                        // FN4  = mega password
+    [ 5] =  ACTION_LAYER_SET(9, ON_BOTH),                   // FN5  = set Layer9
 };
 
 
-#define KEYMAPS_SIZE        (sizeof(keymaps)      / sizeof(keymaps[0]))
-#define FN_ACTIONS_SIZE     (sizeof(fn_actions)   / sizeof(fn_actions[0]))
-#define FN_ACTIONS_3_SIZE   (sizeof(fn_actions_3) / sizeof(fn_actions_3[0]))
-#define FN_ACTIONS_7_SIZE   (sizeof(fn_actions_7) / sizeof(fn_actions_7[0]))
-#define FN_ACTIONS_9_SIZE   (sizeof(fn_actions_9) / sizeof(fn_actions_9[0]))
+#define KEYMAPS_SIZE        (sizeof(keymaps)       / sizeof(keymaps[0]))
+#define FN_ACTIONS_SIZE     (sizeof(fn_actions)    / sizeof(fn_actions[0]))
+#define FN_ACTIONS_3_SIZE   (sizeof(fn_actions_3)  / sizeof(fn_actions_3[0]))
+#define FN_ACTIONS_7_SIZE   (sizeof(fn_actions_7)  / sizeof(fn_actions_7[0]))
+#define FN_ACTIONS_9_SIZE   (sizeof(fn_actions_9)  / sizeof(fn_actions_9[0]))
+#define FN_ACTIONS_13_SIZE  (sizeof(fn_actions_13) / sizeof(fn_actions_13[0]))
 
 /*
  * translates Fn keycode to action
@@ -319,6 +372,8 @@ action_t keymap_fn_to_action(uint8_t keycode)
         action.code = pgm_read_word(&fn_actions_7[FN_INDEX(keycode)]);
     } else if (layer == 9 && FN_INDEX(keycode) < FN_ACTIONS_9_SIZE) {
         action.code = pgm_read_word(&fn_actions_9[FN_INDEX(keycode)]);
+    } else if (layer == 13 && FN_INDEX(keycode) < FN_ACTIONS_13_SIZE) {
+        action.code = pgm_read_word(&fn_actions_13[FN_INDEX(keycode)]);
     } else if (action.code == ACTION_NO && FN_INDEX(keycode) < FN_ACTIONS_SIZE) {
         // by default, use fn_actions from default layer 0
         // this is needed to get mapping for same key, that was used switch to some layer,
