@@ -180,12 +180,12 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                             TRNS,TRNS,TRNS,     TRNS,TRNS,TRNS
     ),
 
-    KEYMAP(  // Layer9 : Autocad (QWERTY + immediate Ctrl/Shift/Alt/Win)
+    KEYMAP(  // Layer9 : Autocad (NumPad + immediate Ctrl/Shift/Alt/Win)
         ESC ,TRNS,TRNS,FN5 ,TRNS,TRNS,               TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
-        ESC ,Q   ,W   ,E   ,R   ,T   ,               Y   ,U   ,I   ,O   ,P   ,LBRC,
-        TAB ,A   ,S   ,D   ,F   ,G   ,               H   ,J   ,K   ,L   ,SCLN,TRNS,
-        ENT ,Z   ,X   ,C   ,V   ,B   ,               N   ,M   ,COMM,DOT ,SLSH,RBRC,
-             TRNS,TRNS,SPC ,LALT,                         TRNS,TRNS,TRNS,TRNS,
+        ESC ,NLCK,P7  ,P8  ,P9  ,PMNS,               Y   ,U   ,I   ,O   ,P   ,LBRC,
+        TAB ,NO  ,P4  ,P5  ,P6  ,PPLS,               H   ,J   ,K   ,L   ,SCLN,TRNS,
+        ENT ,P0  ,P1  ,P2  ,P3  ,PENT,               N   ,M   ,COMM,DOT ,SLSH,RBRC,
+             TRNS,P0  ,SPC ,LALT,                         TRNS,TRNS,TRNS,TRNS,
                                  LGUI,TRNS,     TRNS,TRNS,
                                       ENT ,     TRNS,
                             LCTL,LSFT,ESC ,     TRNS,TRNS,TRNS
