@@ -112,7 +112,6 @@ NKRO_ENABLE = yes		# USB Nkey Rollover (+500)
 #PS2_MOUSE_ENABLE = yes	# PS/2 mouse(TrackPoint) support
 INVERT_NUMLOCK = yes 	# invert state of NumLock led
 
-
 # Search Path
 VPATH += $(TARGET_DIR)
 VPATH += $(TMK_DIR)
@@ -137,4 +136,5 @@ micro: all
 cub: OPT_DEFS += -DKEYMAP_CUB
 cub: all
 
-
+svoraka5: OPT_DEFS += -DKEYMAP_SVORAKA5
+svoraka5: all
