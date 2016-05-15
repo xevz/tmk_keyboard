@@ -95,7 +95,7 @@ static const uint16_t PROGMEM fn_actions[] = {
     [3]  = ACTION_MODS_KEY(MOD_RALT, KC_0),                   // FN3  = }
     [4]  = ACTION_MODS_KEY(MOD_RALT, KC_8),                   // FN4  = [
     [5]  = ACTION_MODS_KEY(MOD_RALT, KC_9),                   // FN5  = ]
-    [6]  = ACTION_MODS_KEY(MOD_RALT, KC_4),                   // FN6  = $ XXX: NOT WORKING
+    [6]  = ACTION_MODS_KEY(MOD_RALT, KC_4),                   // FN6  = $
     [7]  = ACTION_MODS_KEY(MOD_RSFT, KC_2),                   // FN7  = "
     [8]  = ACTION_MODS_KEY(MOD_RSFT, KC_MINUS),               // FN8  = ?
     [9]  = ACTION_MODS_KEY(MOD_RSFT, KC_6),                   // FN9  = &
@@ -117,7 +117,7 @@ static const uint16_t PROGMEM fn_actions[] = {
     // Last row
     [22] = ACTION_MODS_KEY(MOD_RSFT, KC_DOT),                 // FN22 = :
     [23] = ACTION_MODS_KEY(MOD_RSFT, KC_0),                   // FN23 = =
-    [24] = ACTION_MODS_KEY(MOD_RALT, KC_2),                   // FN24 = @ XXX: NOT WORKING
+    [24] = ACTION_MODS_KEY(MOD_RALT, KC_2),                   // FN24 = @
     [25] = ACTION_MODS_KEY(MOD_RSFT, KC_1),                   // FN25 = !
     [26] = ACTION_MODS_KEY(MOD_RALT, KC_MINUS),               // FN26 = backslash
     [27] = ACTION_MODS_KEY(MOD_RSFT, KC_5),                   // FN27 = %
