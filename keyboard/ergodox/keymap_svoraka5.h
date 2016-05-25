@@ -10,25 +10,46 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KEYMAP(  // Layer0: default, leftled:none
         // left hand
         EQL,    1,  2,  3,    4,     5, NO,
-        TAB,   AR, AU, OU,    P,     Y, FN28,
+        TAB,   AR, AU, OU,    P,     Y, NO,
         ESC,    A,  O,  E,    U,     I,
-        LSFT, DOT,  Q,  J,    K,     X, NO,
+        LSFT, DOT,  Q,  J,    K,     X, FN29,
         LGUI,      NO, NO, LEFT,  RGHT,
                                         LCTL,  LALT,
                                                HOME,
                                      BSPC, DEL, END,
         // right hand,
-             NO,   6,   7,     8,    9,   0,   MINS,
-             FN28, F,   G,     C,    R,   L,   BSLS,
-                   D,   H,     T,    N,   S,   SLSH,
-             NO,   B,   M,     W,    V,   Z,   RSFT,
-                        UP, DOWN, COMM,   NO,  RGUI,
+             NO,   6,   7,     8,    9,    0,   MINS,
+             NO,   F,   G,     C,    R,    L,   BSLS,
+                   D,   H,     T,    N,    S,   SLSH,
+             FN29, B,   M,     W,    V,    Z,   RSFT,
+                        UP, DOWN, COMM, RBRC,  RGUI,
         FN1, RCTL,
         PGUP,
         PGDN, ENT, SPC
     ),
 
-    KEYMAP(  // Layer1: AltGr
+    KEYMAP(  // Layer1: Function keys
+        // left hand
+        TRNS,  F1, F2, F3, F4, F5, F6,
+        TRNS,  TRNS, TRNS, TRNS, TRNS, TRNS, FN29,
+        TRNS,  TRNS, TRNS, TRNS, TRNS, TRNS,
+        TRNS,  TRNS, TRNS, TRNS, TRNS, TRNS, TRNS,
+        TRNS,          TRNS, TRNS, TRNS, TRNS,
+                                       TRNS,  TRNS,
+                                            TRNS,
+                                    TRNS, TRNS, TRNS,
+        // right hand
+             F7,   F8, F9, F10, F11, F12, TRNS,
+             FN29, TRNS, TRNS,  TRNS,  TRNS,  TRNS, TRNS,
+                   TRNS, TRNS,  TRNS,  TRNS,  TRNS, TRNS,
+             TRNS,   TRNS, TRNS,  TRNS,  TRNS,  TRNS, TRNS,
+                       TRNS,  TRNS,  TRNS,  TRNS, TRNS,
+        TRNS,  TRNS,
+        TRNS,
+        TRNS, TRNS, TRNS
+    ),
+
+    KEYMAP(  // Layer2: AltGr
         // left hand
         NO,   NO,    NO,      NO,   NO,   NO,   NO,
         NO,  FN2,   FN3,     FN4,  FN5,  FN6,   NO,
@@ -43,32 +64,13 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
              NO,   FN7,   FN8,  FN9, FN10, FN11,   NO,
                   FN17,  FN18, FN19, FN20, FN21,   NO,
              NO,  FN27,    NO,   NO,   NO,   NO,   NO,
-                    NO,    NO,   NO,   NO,   NO,
+                    NO,    NO,   NO, FN28,   NO,
         FN1,  NO,
         NO,
         NO, NO, NO
     ),
 
-    KEYMAP(  // Layer2: Function keys
-        // left hand
-        NO,  F1, F2, F3, F4, F5, F6,
-        NO,  NO, NO, NO, NO, NO, FN28,
-        NO,  NO, NO, NO, NO, NO,
-        NO,  NO, NO, NO, NO, NO, NO,
-        NO,          NO, NO, NO, NO,
-                                       NO,  NO,
-                                            NO,
-                                    NO, NO, NO,
-        // right hand
-             F7,   F8, F9, F10, F11, F12, NO,
-             FN28, NO, NO,  NO,  NO,  NO, NO,
-                   NO, NO,  NO,  NO,  NO, NO,
-             NO,   NO, NO,  NO,  NO,  NO, NO,
-                       NO,  NO,  NO,  NO, NO,
-        NO,  NO,
-        NO,
-        NO, NO, NO
-    ),
+
 };
 
 /* id for user defined functions */
@@ -88,7 +90,7 @@ static const uint16_t PROGMEM fn_actions[] = {
     [0]  = ACTION_FUNCTION(TEENSY_KEY),                       // FN0  - Teensy key
 
     // AltGr toogle
-    [1]  = ACTION_LAYER_MOMENTARY(1),                         // FN1 = Temporarily switch to layer 1
+    [1]  = ACTION_LAYER_MOMENTARY(2),                         // FN1 = Temporarily switch to layer 1
 
     // AltGr, top row
     [2]  = ACTION_MODS_KEY(MOD_RALT, KC_7),                   // FN2  = {
@@ -121,9 +123,10 @@ static const uint16_t PROGMEM fn_actions[] = {
     [25] = ACTION_MODS_KEY(MOD_RSFT, KC_1),                   // FN25 = !
     [26] = ACTION_MODS_KEY(MOD_RALT, KC_MINUS),               // FN26 = backslash
     [27] = ACTION_MODS_KEY(MOD_RSFT, KC_5),                   // FN27 = %
+    [28] = ACTION_MODS_KEY(MOD_RALT, KC_RBRACKET),
 
     // Function key layer toggle
-    [28]  = ACTION_LAYER_MOMENTARY(2),                        // FN28 = Temporarily switch to layer 2
+    [29]  = ACTION_LAYER_MOMENTARY(1),                        // FN29 = Temporarily switch to layer 2
 };
 
 const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt) {
